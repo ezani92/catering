@@ -99,12 +99,12 @@
                                     @endphp
                                     @foreach($food_categories as $food_category)
                                         @if($first == true)
-                                            <li class="active" style="display: inline-block; float: none; background-color: #fff;"><a style="text-transform: uppercase;" data-toggle="tab" href="#{{ $food_category->id }}">{{ $food_category->name }}</a></li>
+                                            <li class="active" style="display: inline-block; float: none; background-color: #fff; margin-bottom: 10px;"><a style="text-transform: uppercase;" data-toggle="tab" href="#{{ $food_category->id }}">{{ $food_category->name }}</a></li>
                                             @php
                                                 $first = false;
                                             @endphp
                                         @else
-                                            <li style="display: inline-block; float: none; background-color: #fff;"><a style="text-transform: uppercase;" data-toggle="tab" href="#{{ $food_category->id }}">{{ $food_category->name }}</a></li>
+                                            <li style="display: inline-block; float: none; background-color: #fff; margin-bottom: 10px;"><a style="text-transform: uppercase;" data-toggle="tab" href="#{{ $food_category->id }}">{{ $food_category->name }}</a></li>
 
                                         @endif
 
@@ -112,7 +112,7 @@
                                     <br /><br />
                                     @foreach($other_categories as $other_category)
 
-                                        <li style="display: inline-block; float: none; background-color: #fff;"><a style=" text-transform: uppercase;" data-toggle="tab" href="#{{ $other_category->id }}">{{ $other_category->name }}</a></li>
+                                        <li style="display: inline-block; float: none; background-color: #fff; margin-bottom: 10px;"><a style=" text-transform: uppercase;" data-toggle="tab" href="#{{ $other_category->id }}">{{ $other_category->name }}</a></li>
 
                                     @endforeach
 

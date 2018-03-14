@@ -1,0 +1,1 @@
+<a href="{{ URL::to('order/view/'.$order->hash_id.'') }}" class="btn btn-xs btn-info">View</a>

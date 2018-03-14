@@ -1,0 +1,1 @@
+<a href="{{ URL::to('admin/item/'.$food->id.'') }}" class="btn btn-xs btn-info">Edit</a>

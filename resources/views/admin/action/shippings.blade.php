@@ -1,0 +1,1 @@
+<a href="{{ URL::to('admin/shipping/'.$shipping->id.'/edit') }}" class="btn btn-xs btn-info">Edit</a> <a href="{{ URL::to('admin/shipping/'.$shipping->id.'/delete') }}" class="btn btn-xs btn-danger">Delete</a>

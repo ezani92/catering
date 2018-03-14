@@ -1,0 +1,1 @@
+<a href="{{ URL::to('admin/item-category/'.$foodCategory->id.'/delete') }}" class="btn btn-xs btn-danger">Delete</a>

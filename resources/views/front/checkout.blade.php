@@ -8,7 +8,7 @@
                         <div id="accordion1" class="panel-group accordion">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne"><i style="color: #7f8c8d;" class="fas fa-utensils"></i>&nbsp;&nbsp;Your Selection </a></h4>
+                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne"><i style="color: #008d86;" class="fas fa-utensils"></i>&nbsp;&nbsp;Your Selection </a></h4>
                                 </div>
                                 <div id="collapseOne" class="panel-collapse collapse">
                                     <div class="panel-body" style="color: white; background-image: url({{ asset('storage/set/'.$set->image) }}); background-size: cover; margin: 0 0px;">
@@ -21,7 +21,7 @@
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo"><i style="color: #7f8c8d;" class="fas fa-users"></i>&nbsp;&nbsp;Checkout Summary </a></h4>
+                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo"><i style="color: #008d86;" class="fas fa-users"></i>&nbsp;&nbsp;Checkout Summary </a></h4>
                                 </div>
                                 <div id="collapseTwo" class="panel-collapse collapse in">
                                     @php
@@ -97,7 +97,7 @@
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseThree"><i style="color: #7f8c8d;" class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Dishes</a></h4>
+                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseThree"><i style="color: #008d86;" class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Dishes</a></h4>
                                 </div>
                                 <div id="collapseThree" class="panel-collapse collapse">
                                     <div style="padding-left: 51px; padding-right: 16px;">
@@ -120,7 +120,7 @@
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseFour"><i style="color: #7f8c8d;" class="fas fa-cart-plus"></i>&nbsp;&nbsp;Add On Order</a></h4>
+                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseFour"><i style="color: #008d86;" class="fas fa-cart-plus"></i>&nbsp;&nbsp;Add On Order</a></h4>
                                 </div>
                                 <div id="collapseFour" class="panel-collapse collapse">
                                     <ul id="ul_side_dishes" class="side-orders-selected" >
@@ -157,7 +157,7 @@
                                         <h4 style="border-bottom: 1px dotted #999; padding-bottom: 10px; ">YOU ARE NOT LOG IN</h4>
                                         <p>Please login / register first before continue with checkout</p>
                                         <br />
-                                        <a href="{{ url('login') }}" class="btn btn-info">Login</a> <a href="{{ url('register') }}" class="btn btn-info">Register</a>
+                                        <a href="{{ url('login') }}" class="btn btn-primary">Login</a> <a href="{{ url('register') }}" class="btn btn-primary">Register</a>
                                     </div>
                                 </div>
                             </div>
@@ -315,9 +315,9 @@
                                             </div>
                                         </div>
                                         <br /><br />
-                                        <button class="btn btn-info btn-block payment" type="submit" style="display: none;">PROCEED TO PAYMENT</button>
+                                        <button class="btn btn-primary btn-block payment" type="submit" style="display: none;">PROCEED TO PAYMENT</button>
                         
-                                        <button class="btn btn-info btn-block quotation" type="submit" style="display: none;">DOWNLOAD QUOTATION</button>
+                                        <button class="btn btn-primary btn-block quotation" type="submit" style="display: none;">DOWNLOAD QUOTATION</button>
                                     </div>
                                 </div>
                             </div>

@@ -1039,11 +1039,11 @@ button,input,select,textarea{
     line-height:inherit
 }
 a{
-    color:#4285f4;
+    color:#01493c;
     text-decoration:none
 }
 a:focus,a:hover{
-    color:#0d5bdd
+    color:#01493c;
 }
 a:focus{
     outline-offset:-2px
@@ -3094,7 +3094,7 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
 }
 .nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{
     color:#fff;
-    background-color:#4285f4
+    background-color:#01493c;
 }
 
 
@@ -13907,8 +13907,8 @@ label{
 }
 .be-checkbox input[type=checkbox]:checked+label:before,.be-checkbox input[type=radio]:checked+label:before,.be-radio input[type=checkbox]:checked+label:before,.be-radio input[type=radio]:checked+label:before{
     content:"\f26b";
-    color:#4285f4;
-    border-color:#4285f4;
+    color:#01493c;
+    border-color:#01493c;
     padding-left: 20px;
 }
 .be-checkbox input[type=checkbox]:disabled+label,.be-checkbox input[type=radio]:disabled+label,.be-radio input[type=checkbox]:disabled+label,.be-radio input[type=radio]:disabled+label{
@@ -16606,3 +16606,12 @@ box-shadow: 4px 4px 5px grey;
 }
 
 
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #01493C !important;
+    border-color: grey;
+}
+
+.btn-primary:hover {
+    background-color: #005e4d !important;
+    border-color: grey;
+}

@@ -8,7 +8,7 @@
                         <div id="accordion1" class="panel-group accordion">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne"><i style="color: #7f8c8d;" class="fas fa-utensils"></i>&nbsp;&nbsp;Your Selection </a></h4>
+                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne"><i style="color: #008d86;" class="fas fa-utensils"></i>&nbsp;&nbsp;Your Selection </a></h4>
                                 </div>
                                 <div id="collapseOne" class="panel-collapse collapse">
                                     <div class="panel-body" style="color: white; background-image: url({{ asset('storage/set/'.$set->image) }}); background-size: cover; margin: 0 0px;">
@@ -21,7 +21,7 @@
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo"><i style="color: #7f8c8d;" class="fas fa-users"></i>&nbsp;&nbsp;Number Of Pax </a></h4>
+                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo"><i style="color: #008d86;" class="fas fa-users"></i>&nbsp;&nbsp;Number Of Pax </a></h4>
                                 </div>
                                 <div id="collapseTwo" class="panel-collapse collapse in">
                                     <div style="padding-left: 16px; padding-right: 16px;">
@@ -32,13 +32,13 @@
                                         </div>
                                         <br />
                                         NUMBER OF PAX SELECTED<br />
-                                        <span style="font-size:24px; color: #7f8c8d;"><span id="pax_selected">0</span></span>
+                                        <span style="font-size:24px; color: #01493c;"><span id="pax_selected">0</span></span>
                                         <br />
                                         PRICE<br />
-                                        <span style="font-size:24px; color: #7f8c8d;">RM <span id="total">0</span></span>
+                                        <span style="font-size:24px; color: #01493c;">RM <span id="total">0</span></span>
                                         <br />
                                         PRICE W/ GST<br />
-                                        <span style="font-size:24px; color: #7f8c8d;">RM <span id="total_with_gst" >0</span></span>
+                                        <span style="font-size:24px; color: #01493c;">RM <span id="total_with_gst" >0</span></span>
                                         <br />
                                         <br />
                                     </div>
@@ -72,7 +72,7 @@
                             <div class="col-md-6">
                                 <div id="cat_div_{{ $course_categories->id }}" class="panel panel-default panel-package compulsory">
                                     <div class="panel-body  row-eq-height">
-                                        <h3>
+                                        <h3 style="color: #01493c;">
                                             {{ $course_categories->name }} <span style="color:grey;"> - select 1 - </span>
                                         </h3>
                                         <input name="CategoryName" type="hidden" value="{{ $course_categories->name }}" />
@@ -187,8 +187,8 @@
         });
 
         var input_total = $("input[name='input_total']").TouchSpin({
-            buttondown_class: "btn btn-info",
-            buttonup_class: "btn btn-info",
+            buttondown_class: "btn btn-primary",
+            buttonup_class: "btn btn-primary",
             min: {{ $set->min_pax }},
             max: {{ $set->max_pax }},
             step: 5,

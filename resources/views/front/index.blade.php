@@ -66,7 +66,7 @@
                             <p>*If you cant find your location above means we are not able to deliver to that location</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-info">Continue</button>
+                            <button type="submit" class="btn btn-primary">Continue</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Select Later</button>
                         </div>
                     </form>

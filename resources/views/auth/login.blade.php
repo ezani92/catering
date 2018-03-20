@@ -50,7 +50,7 @@
                                         <div class="col-xs-6 login-forgot-password"><a href="{{ route('password.request') }}">Forgot Password?</a></div>
                                     </div>
                                     <div class="form-group login-submit">
-                                        <button data-dismiss="modal" type="submit" class="btn btn-info btn-xl">Sign me in</button>
+                                        <button data-dismiss="modal" type="submit" class="btn btn-primary btn-xl">Sign me in</button>
                                     </div>
                                 </form>
                             </div>

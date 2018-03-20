@@ -8,7 +8,7 @@
                         <div id="accordion1" class="panel-group accordion">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne"><i style="color: #7f8c8d;" class="fas fa-utensils"></i>&nbsp;&nbsp;Your Selection </a></h4>
+                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne"><i style="color: #008d86;" class="fas fa-utensils"></i>&nbsp;&nbsp;Your Selection </a></h4>
                                 </div>
                                 <div id="collapseOne" class="panel-collapse collapse">
                                     <div class="panel-body" style="color: white; background-image: url({{ asset('storage/set/'.$set->image) }}); background-size: cover; margin: 0 0px;">
@@ -20,18 +20,18 @@
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo"><i style="color: #7f8c8d;" class="fas fa-users"></i>&nbsp;&nbsp;Number Of Pax </a></h4>
+                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo"><i style="color: #008d86;" class="fas fa-users"></i>&nbsp;&nbsp;Number Of Pax </a></h4>
                                 </div>
                                 <div id="collapseTwo" class="panel-collapse collapse">
                                     <div style="padding-left: 16px; padding-right: 16px;">
                                         NUMBER OF PAX SELECTED<br />
-                                        <span style="font-size:24px; color: #7f8c8d;"><span id="pax_selected">{{ $input['pax_form'] }}</span></span>
+                                        <span style="font-size:24px; color: #01493c;"><span id="pax_selected">{{ $input['pax_form'] }}</span></span>
                                         <br />
                                         PRICE<br />
-                                        <span style="font-size:24px; color: #7f8c8d;">RM <span id="total">{{ number_format($input['total_form'],2) }}</span></span>
+                                        <span style="font-size:24px; color: #01493c;">RM <span id="total">{{ number_format($input['total_form'],2) }}</span></span>
                                         <br />
                                         PRICE W/ GST<br />
-                                        <span style="font-size:24px; color: #7f8c8d;">RM <span id="total_with_gst" >{{ number_format($input['total_form'] * 1.06,2) }}</span></span>
+                                        <span style="font-size:24px; color: #01493c;">RM <span id="total_with_gst" >{{ number_format($input['total_form'] * 1.06,2) }}</span></span>
                                         <br />
                                         <br />
                                     </div>
@@ -39,12 +39,12 @@
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseThree"><i style="color: #7f8c8d;" class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Dishes</a></h4>
+                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseThree"><i style="color: #008d86;" class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Dishes</a></h4>
                                 </div>
                                 <div id="collapseThree" class="panel-collapse collapse">
                                     <div style="padding-left: 51px; padding-right: 16px;">
                                         @foreach($course_categories as $course_category)
-                                            <strong><span style="text-transform: uppercase;">{{ $course_category->name }}</span></strong>
+                                            <strong><span style="text-transform: uppercase; color: #01493c;">{{ $course_category->name }}</span></strong>
                                             <ul style="padding-left:0; ">@php
 
                                                 $courses = \App\Course::where('course_category_id',$course_category->id)->whereIn('id', $input['_courses'])->get();
@@ -61,7 +61,7 @@
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseFour"><i style="color: #7f8c8d;" class="fas fa-cart-plus"></i>&nbsp;&nbsp;Add On Order</a></h4>
+                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseFour"><i style="color: #008d86;" class="fas fa-cart-plus"></i>&nbsp;&nbsp;Add On Order</a></h4>
                                 </div>
                                 <div id="collapseFour" class="panel-collapse collapse in">
                                     <ul id="ul_side_dishes" class="side-orders-selected">
@@ -148,7 +148,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <button data-food-id="{{ $food->id }}" data-food-price="{{ $food->price }}" data-food-name="{{ $food->name }}" class="btn btn-info btn-counter btn-block btn-add btn-add-{{ $food->id }}">ADD</button>
+                                                            <button data-food-id="{{ $food->id }}" data-food-price="{{ $food->price }}" data-food-name="{{ $food->name }}" class="btn btn-primary btn-counter btn-block btn-add btn-add-{{ $food->id }}">ADD</button>
                                                             <button data-food-id="{{ $food->id }}" class="btn btn-grey btn-counter btn-block btn-remove btn-remove-{{ $food->id }}" style="display: none; margin-top: 0px;">REMOVE</button>
                                                         </div>
                                                         </div>

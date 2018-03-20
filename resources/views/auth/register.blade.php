@@ -51,7 +51,7 @@
                                     </div>
                                     
                                     <div class="form-group login-submit">
-                                        <button data-dismiss="modal" type="submit" class="btn btn-info btn-xl">Register</button>
+                                        <button data-dismiss="modal" type="submit" class="btn btn-primary btn-xl">Register</button>
                                     </div>
                                 </form>
                             </div>

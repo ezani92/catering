@@ -40,7 +40,7 @@ class FoodController extends Controller
                     }
                     else
                     {
-                        return $food->name.'<sup class="new-item">New</sup> ';
+                        return $food->name.'<img height="20px" src="https://png.icons8.com/ios/1600/00827B/chef-hat.png"> ';
                     }
                     
                 }

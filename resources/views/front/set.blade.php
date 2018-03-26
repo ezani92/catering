@@ -94,11 +94,11 @@
                                                                 {{ $course->food->name }}
                                                                 @if($course->food->chef_hat == 1 && $course->food->is_new == 1)
                                                                     <sup class="new-item">New</sup>
-                                                                    <img style="margin-bottom: 7px;" height="20px" src="https://png.icons8.com/ios/1600/4fffe6/chef-hat.png">
+                                                                    <img style="margin-bottom: 7px;" height="20px" src="https://png.icons8.com/ios/1600/00827B/chef-hat.png">
                                                                 @elseif ($course->food->is_new == 1)
                                                                     <sup class="new-item">New</sup>
                                                                 @elseif ($course->food->chef_hat == 1)
-                                                                    <img style="margin-bottom: 7px;" height="20px" src="https://png.icons8.com/ios/1600/4fffe6/chef-hat.png">
+                                                                    <img style="margin-bottom: 7px;" height="20px" src="https://png.icons8.com/ios/1600/00827B/chef-hat.png">
                                                                 @endif
                                                             </div>
                                                         </label>
@@ -114,7 +114,7 @@
                                                             @endif
                                                             ">{{ $course->food->name }} 
                                                             @if($course->food->chef_hat == 1)
-                                                                <img style="margin-bottom: 7px;" height="20px" src="https://png.icons8.com/ios/1600/4fffe6/chef-hat.png">
+                                                                <img style="margin-bottom: 7px;" height="20px" src="https://png.icons8.com/ios/1600/00827B/chef-hat.png">
                                                             @else
 
                                                             @endif

@@ -18,6 +18,7 @@ class CreateFoodsTable extends Migration
             $table->integer('food_category_id');
             $table->string('name');
             $table->integer('chef_hat')->nullable();
+            $table->integer('is_new')->nullable();
             $table->decimal('price', 10, 2);
             $table->string('min');
             $table->string('max');

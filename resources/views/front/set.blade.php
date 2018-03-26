@@ -73,7 +73,7 @@
                                 <div id="cat_div_{{ $course_categories->id }}" class="panel panel-default panel-package compulsory">
                                     <div class="panel-body  row-eq-height">
                                         <h3 style="color: #01493c;">
-                                            {{ $course_categories->name }} <span style="color:grey;"> - select 1 - </span>
+                                            {{ $course_categories->name }} <span style="color:#ff0000;"> - select 1 - </span>
                                         </h3>
                                         <input name="CategoryName" type="hidden" value="{{ $course_categories->name }}" />
                                         <input name="_CourseCategories[]" type="hidden" value="{{ $course_categories->id }}" />
@@ -83,24 +83,30 @@
                                                 @if($course->additional_price == 0)
                                                     <div class="be-checkbox">
                                                         <input name="_courses[]" value="{{ $course->id }}" data-additional="0" data-additional-price="0" id="food_{{ $course->food->id }}" type="checkbox" class="count-course food_class_{{ $course->course_category_id }}">
-                                                        <label style="display: block; padding: 1px 2px; margin-left: 25px; text-indent: -27px;" class="radio-label texthover" for="food_{{ $course->food->id }}" data-image="
+                                                        <label style="display: block; padding: 1px 2px;" class="radio-label texthover" for="food_{{ $course->food->id }}" data-image="
                                                             @if($course->food->food_image == null)
                                                                 https://via.placeholder.com/600x350&text=No%20Image%20Available
                                                             @else 
                                                                 https://teaffani.dev/storage/food/{{ $course->food->food_image }}
                                                             @endif
-                                                            ">{{ $course->food->name }} 
-                                                            @if($course->food->chef_hat == 1)
-                                                                <img style="margin-bottom: 7px;" height="20px" src="https://png.icons8.com/ios/1600/chef-hat.png">
-                                                            @else
-
-                                                            @endif
+                                                            ">
+                                                            <div class="food-label food-item-name">
+                                                                {{ $course->food->name }}
+                                                                @if($course->food->chef_hat == 1 && $course->food->is_new == 1)
+                                                                    <sup class="new-item">New</sup>
+                                                                    <img style="margin-bottom: 7px;" height="20px" src="https://png.icons8.com/ios/1600/4fffe6/chef-hat.png">
+                                                                @elseif ($course->food->is_new == 1)
+                                                                    <sup class="new-item">New</sup>
+                                                                @elseif ($course->food->chef_hat == 1)
+                                                                    <img style="margin-bottom: 7px;" height="20px" src="https://png.icons8.com/ios/1600/4fffe6/chef-hat.png">
+                                                                @endif
+                                                            </div>
                                                         </label>
                                                     </div>
                                                 @else
                                                     <div class="be-checkbox">
                                                         <input name="_courses[]" value="{{ $course->id }}" data-additional="1" data-additional-price="{{ $course->additional_price }}" id="food_{{ $course->food->id }}" type="checkbox" class="count-course food_class_{{ $course->course_category_id }}">
-                                                        <label style="display: block; padding: 1px 2px; margin-left: 25px; text-indent: -27px;" class="radio-label texthover" for="food_{{ $course->food->id }}" data-image="
+                                                        <label style="display: block; padding: 1px 2px;" class="radio-label texthover" for="food_{{ $course->food->id }}" data-image="
                                                             @if($course->food->food_image == null)
                                                                 https://via.placeholder.com/600x350&text=No%20Image%20Available
                                                             @else 
@@ -108,7 +114,7 @@
                                                             @endif
                                                             ">{{ $course->food->name }} 
                                                             @if($course->food->chef_hat == 1)
-                                                                <img style="margin-bottom: 7px;" height="20px" src="https://png.icons8.com/ios/1600/chef-hat.png">
+                                                                <img style="margin-bottom: 7px;" height="20px" src="https://png.icons8.com/ios/1600/4fffe6/chef-hat.png">
                                                             @else
 
                                                             @endif

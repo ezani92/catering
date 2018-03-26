@@ -31,9 +31,17 @@
                                                         <label>Item Name</label>
                                                         <input type="text" class="form-control" name="name" required>
                                                     </div>
-                                                    <div class="form-group col-md-6">
-                                                        <label>Chef Hat</label>
-                                                        {{ Form::select('chef_hat', ['0' => 'No', '1' => 'Yes'], '', ['class' => 'form-control food-category input-sm']) }}
+                                                    <div class="form-group col-md-3">
+                                                        <div class="be-checkbox">
+                                                            {{ Form::checkbox('chef_hat', 1, null, ['id' => 'chef_hat']) }}
+                                                            <label for="chef_hat" class="radio-label texthover">Chef Hat</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3">   
+                                                        <div class="be-checkbox">                               
+                                                            {{ Form::checkbox('is_new', 1, null, ['id' => 'is_new'] ) }} 
+                                                            <label for="is_new" class="radio-label texthover">New</label>
+                                                        </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label>Price Per Item/Set (RM)</label>

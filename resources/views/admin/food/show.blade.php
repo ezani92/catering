@@ -28,9 +28,25 @@
                                                         <label>Item Name</label>
                                                         <input type="text" class="form-control" name="name" value="{{ $food->name }}" required>
                                                     </div>
-                                                    <div class="form-group col-md-6">
-                                                        <label>Chef Hat</label>
-                                                        {{ Form::select('chef_hat', ['0' => 'No', '1' => 'Yes'], $food->chef_hat, ['class' => 'form-control food-category input-sm']) }}
+                                                    <div class="form-group col-md-3">
+                                                        <div class="be-checkbox">
+                                                            @if ($food->chef_hat == 1) 
+                                                                {{ Form::checkbox('chef_hat', 1, true, ['id' => 'chef_hat']) }}
+                                                            @else
+                                                                {{ Form::checkbox('chef_hat', 1, null, ['id' => 'chef_hat']) }}
+                                                            @endif
+                                                            <label for="chef_hat" class="radio-label texthover">Chef Hat</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-3">   
+                                                        <div class="be-checkbox">      
+                                                            @if ($food->is_new == 1)                         
+                                                                {{ Form::checkbox('is_new', 1, true, ['id' => 'is_new'] ) }}
+                                                            @else
+                                                                {{ Form::checkbox('is_new', 1, null, ['id' => 'is_new'] ) }}
+                                                            @endif
+                                                            <label for="is_new" class="radio-label texthover">New</label>
+                                                        </div>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label>Price Per Item/Set (RM)</label>

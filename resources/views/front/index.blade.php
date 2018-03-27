@@ -35,7 +35,7 @@
                                 <p>
                                     {{ $package->description }}
                                 </p>
-                                <a href="{{ url('/order/'.$package->slug) }}" class="btn btn-default">Order Now</a>
+                                <a href="{{ url('/order/'.$package->slug) }}" class="btn btn-primary">Order Now</a>
                             </div>
                         </div>
                     </div>

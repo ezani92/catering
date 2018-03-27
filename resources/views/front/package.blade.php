@@ -48,7 +48,7 @@
                                 <br />
                                 <span style="font-size: 15px;">{{ $set->name }}</sup>
                                 <br /><br />
-                                <a href="{{ url('order/'.$package->slug.'/'.$set->slug) }}" class="btn btn-default">Choose This Package</a>
+                                <a href="{{ url('order/'.$package->slug.'/'.$set->slug) }}" class="btn btn-primary">Choose This Package</a>
                             </div>
                         </div>
                     </div>

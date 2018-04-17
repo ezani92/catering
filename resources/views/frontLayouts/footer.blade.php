@@ -5,7 +5,7 @@
         <script src="{{ secure_asset('assets/lib/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript"></script>
         <script src="{{ secure_asset('assets/lib/prettify/prettify.js') }}" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.2/sweetalert2.min.js"></script>
+        <script type="text/javascript" src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
         <script type="text/javascript" src="https://cdn.rawgit.com/aishek/jquery-animateNumber/52916cbb/jquery.animateNumber.js"></script>
         <script type="text/javascript" src="https://cdn.rawgit.com/istvan-ujjmeszaros/bootstrap-touchspin/b87fa994/dist/jquery.bootstrap-touchspin.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>

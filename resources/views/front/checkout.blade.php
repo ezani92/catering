@@ -169,39 +169,39 @@
                                         <br />
                                         <input type="hidden" name="checkout_user_id" value="{{ Auth::user()->id }}">
                                         <div class="form-group">
-                                            <label>Fullname / Company Name</label>
+                                            <label><strong>Fullname / Company Name</strong></label>
                                             <input type="text" name="checkout_name" class="form-control" value="{{ Auth::user()->name }}" required>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label>Email Address</label>
+                                                <label><strong>email Address</strong></label>
                                                 <input type="text" name="checkout_email" class="form-control" value="{{ Auth::user()->email }}" required>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label>Phone Number</label>
+                                                <label><strong>phone Number</strong></label>
                                                 <input type="text" name="checkout_phone" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label>Address 1 (Billing)</label>
+                                            <label><strong>address 1 (Billing)</strong></label>
                                             <input type="text" name="checkout_billing_address_1" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Address 2 (Billing)</label>
+                                            <label><strong>address 2 (Billing)</strong></label>
                                             <input type="text" name="checkout_billing_address_2" class="form-control" required>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label>Poscode (Billing)</label>
+                                                <label><strong>poscode (Billing)</strong></label>
                                                 <input type="text" name="checkout_billing_poscode" class="form-control" required>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label>City (Billing)</label>
+                                                <label><strong>city (Billing)</strong></label>
                                                 <input type="text" name="checkout_billing_city" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label>State (Billing)</label>
+                                            <label><strong>state (Billing)</strong></label>
                                             <select name="checkout_billing_state" class="form-control" required>
                                                 <option>Selangor</option>
                                                 <option>Kuala Lumpur</option>
@@ -230,7 +230,7 @@
                                         <br />
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label>Date Delivery</label>
+                                                <label><strong>Date Delivery</strong></label>
                                                 <input type="date" name="checkout_date" class="form-control" required>
                                             </div>
                                             <div class="form-group col-md-6">
@@ -238,21 +238,13 @@
                                                 <input type="time" name="checkout_time" class="form-control" required>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Address 1 (Delivery)</label>
-                                            <input type="text" name="checkout_delivery_address_1" class="form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Address 2 (Delivery)</label>
-                                            <input type="text" name="checkout_delivery_address_2" class="form-control" required>
-                                        </div>
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label>Poscode (Delivery)</label>
                                                 <input type="text" name="checkout_delivery_postcode" class="form-control" required>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label>City (Delivery)</label>
+                                                <label>City (Delivery) *We only deliver to cities that are listed here</label>
                                                 <select name="checkout_delivery_city" id="city_delivery" class="form-control select2" required>
                                                         <option value="" data-rate="0">Select</option>
                                                     @foreach(\App\Shipping::all() as $shipping)
@@ -261,32 +253,6 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="form-group">
-                                            <label>State (Billing)</label>
-                                            <select name="checkout_delivery_state" class="form-control" required>
-                                                <option>Selangor</option>
-                                                <option>Kuala Lumpur</option>
-                                                <option>Putrajaya</option>
-                                                <option>Perak</option>
-                                                <option>Johor</option>
-                                                <option>Pahang</option>
-                                                <option>Pulau Pinang</option>
-                                                <option>Kedah</option>
-                                                <option>Perlis</option>
-                                                <option>Negeri Sembilan</option>
-                                                <option>Melaka</option>
-                                                <option>Kelantan</option>
-                                                <option>Terengganu</option>
-                                                <option>Sabah</option>
-                                                <option>Sarawak</option>
-                                            </select>
-                                        </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Other Notes / Request</label>
-                                            <textarea class="form-control" name="checkout_note"></textarea>
-                                        </div>
 
                                         <div class="form-group">
                                             <label>Drag Delivery Location On Map Below</label>
@@ -294,6 +260,11 @@
                                             <div id="somecomponent" style="width: 100%; height: 400px;"></div>
                                             <input type="hidden" id="delivery_lat" name="delivery_lat">
                                             <input type="hidden" id="delivery_long" name="delivery_long">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Other Notes / Request</label>
+                                            <textarea class="form-control" name="checkout_note"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -333,7 +304,7 @@
 
     $(document).ready(function(){
 
-        initGeolocation();
+        
 
         
           
@@ -406,59 +377,67 @@
         );
     }
 
-    function initGeolocation()
-    {
-        if( navigator.geolocation )
-        {
-           // Call getCurrentPosition with success and failure callbacks
-           navigator.geolocation.getCurrentPosition(success);
-        }
-        else
-        {
-           alert("Sorry, your browser does not support geolocation services.");
-        }
-    }
-
-    function success(position)
-    {
-
-        $('#somecomponent').locationpicker({
-            // location: {
-            //     latitude: position.coords.latitude,
-            //     longitude: position.coords.longitude
-            // },
-            // radius: false,
-            // inputBinding: {
-            //     locationNameInput: $('#google_map'),
-            //     latitudeInput: $('#delivery_lat'),
-            //     longitudeInput: $('#delivery_long'),
-            // },
-            // markerInCenter: true,
-            // enableAutocomplete: true,
-            // addressFormat: 'street_address',
-            // autocompleteOptions: {
-            //     types: ['(cities)'],
-            //     componentRestrictions: {country: 'my'}
-            // }
+    $('#somecomponent').locationpicker({
+        @if(Session::has('delivery_lat'))    
             location: {
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude
+                latitude: {{ session('delivery_lat') }},
+                longitude: {{ session('delivery_long') }}
             },
-            radius: false,
-            inputBinding: {
-                locationNameInput: $('#google_map'),
-                latitudeInput: $('#delivery_lat'),
-                longitudeInput: $('#delivery_long')
+        @else
+            location: {
+                latitude: 3.0733,
+                longitude: 101.5054
             },
-            markerInCenter: false,
-            enableAutocomplete: true,
-            addressFormat: 'street_address',
-            autocompleteOptions: {
-                types: ['(cities)'],
-                componentRestrictions: {country: 'my'}
-            }
-        });
-    }
+        @endif
+        radius: false,
+        inputBinding: {
+           locationNameInput: $('#google_map'),
+           latitudeInput: $('#delivery_lat'),
+           longitudeInput: $('#delivery_long')
+        },
+        onchanged: function(currentLocation, radius, isMarkerDropped) {
+            
+            var address = $('#google_map').val();
+
+            $.ajax({
+                url: '{{ url('api/check-shipping') }}',
+                type: 'POST',
+                data: { 
+                    address: address
+                },
+                success: function(result) {
+                    
+                    if(result == '1')
+                    {
+                        swal({
+                            title: "Hooray!",
+                            text: "We can deliver to your location! =)",
+                            type: "success",
+                            confirmButtonText: "Continue",
+                        });
+                    }
+                    else
+                    {
+                        console.log(result);
+                        swal({
+                            title: "Oh No!",
+                            text: "We are not able to deliver to this location, Please set another location. :(",
+                            type: "warning",
+                            confirmButtonText: "Set Another Address",
+                        });
+                    }
+
+                },
+            });
+        },
+        markerInCenter: false,
+        enableAutocomplete: true,
+        addressFormat: 'street_address',
+        autocompleteOptions: {
+            types: ['address'],
+            componentRestrictions: {country: 'my'}
+        }
+    });
 
 
 

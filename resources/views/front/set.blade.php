@@ -83,13 +83,13 @@
                                                 @if($course->additional_price == 0)
                                                     <div class="be-checkbox">
                                                         <input name="_courses[]" value="{{ $course->id }}" data-additional="0" data-additional-price="0" id="food_{{ $course->food->id }}" type="checkbox" class="count-course food_class_{{ $course->course_category_id }}">
-                                                        <label style="display: block; padding: 1px 2px;" class="radio-label texthover" for="food_{{ $course->food->id }}" data-image="
+                                                        <label style="display: block; padding: 1px 2px;" class="radio-label texthover" for="food_{{ $course->food->id }}" 
                                                             @if($course->food->food_image == null)
-                                                                https://via.placeholder.com/600x350&text=No%20Image%20Available
+                                                                data-image="null"
                                                             @else 
-                                                                https://teaffani.dev/storage/food/{{ $course->food->food_image }}
+                                                                data-image="{{ url('/') }}/storage/food/{{ $course->food->food_image }}"
                                                             @endif
-                                                            ">
+                                                            >
                                                             <div class="food-label food-item-name">
                                                                 {{ $course->food->name }}
                                                                 @if($course->food->chef_hat == 1 && $course->food->is_new == 1)
@@ -180,8 +180,16 @@
             
             var food_image = $(this).data("image");
 
-            $("#view_image").attr("src",food_image);
-            $("#view_image").show();
+            if(food_image == 'null')
+            {
+
+            }
+            else
+            {
+                $("#view_image").attr("src",food_image);
+                $("#view_image").show();
+            }
+            
 
         });
         $('.texthover').mouseout(function(){

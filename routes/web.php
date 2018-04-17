@@ -16,7 +16,8 @@
 // });
 
 Route::get('/', 'FrontController@index');
-Route::post('/set-shipping', 'FrontController@SetShipping');
+Route::post('/check-shipping', 'FrontController@CheckShipping');
+Route::post('api/check-shipping', 'FrontController@ApiShipping');
 Route::get('/invoice/{hash_id}', 'FrontController@invoice');
 
 Route::post('order/add-on', 'FrontController@addon');
@@ -78,6 +79,8 @@ Route::middleware(['isadmin'])->group(function () {
     Route::get('admin/item-category', 'FoodCategoryController@index');
     Route::get('admin/item-category-data', 'FoodCategoryController@data');
     Route::post('admin/item-category', 'FoodCategoryController@store');
+    Route::get('admin/item-category/{category_id}/edit', 'FoodCategoryController@edit');
+    Route::post('admin/item-category/{category_id}/update', 'FoodCategoryController@update');
 
     Route::get('admin/set/create', 'SetController@create');
     Route::post('admin/set/create/step2', 'SetController@step2');

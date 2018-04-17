@@ -81,9 +81,12 @@ class FoodCategoryController extends Controller
      * @param  \App\FoodCategory  $foodCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(FoodCategory $foodCategory)
+    public function edit(FoodCategory $foodCategory, $category_id)
     {
-        //
+        $foodCategory = FoodCategory::find($category_id);
+        $foodCategories = FoodCategory::all()->pluck('name','id');
+
+        return view('admin.food-category.edit',compact('foodCategory','foodCategories'));
     }
 
     /**
@@ -93,9 +96,19 @@ class FoodCategoryController extends Controller
      * @param  \App\FoodCategory  $foodCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FoodCategory $foodCategory)
+    public function update(Request $request, FoodCategory $foodCategory,$category_id)
     {
-        //
+        $input = $request->all();
+
+        $foodCategory = FoodCategory::find($category_id);
+        $foodCategory->name = $input['name'];
+        $foodCategory->type = $input['category_type'];
+        $foodCategory->save();
+
+        Session::flash('message', 'Item Category Was Successfully Updated!'); 
+        Session::flash('alert-class', 'alert-success');
+
+        return redirect('admin/item-category');
     }
 
     /**

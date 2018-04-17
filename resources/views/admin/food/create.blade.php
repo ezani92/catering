@@ -62,7 +62,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-block btn-primary">Create New Food</button>
+                                        <button type="submit" class="btn btn-block btn-primary">Create New Item</button>
                                     </form>
                                 </div>
                             </div>

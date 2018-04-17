@@ -8,6 +8,7 @@ use PDF;
 use App\Package;
 use App\Set;
 use App\Course;
+use App\Shipping;
 use DB;
 use App\Food;
 use App\FoodCategory;
@@ -28,13 +29,74 @@ class FrontController extends Controller
     	]);
     }
 
-    public function SetShipping(Request $request)
+    public function CheckShipping(Request $request)
     {
         $input = $request->all();
 
-        session(['shipping_location' => $input['checkout_delivery_city']]);
+        $curlService = new CurlService();
+
+        $response = $curlService->to('https://maps.googleapis.com/maps/api/geocode/json')
+        ->withData( array(  'address' => $input['google_map'],
+                            'key' => 'AIzaSyDLhmlgfJ1tfqc3omBsKO8ZdkwzbRRSbN0',
+                    ) )
+        ->get();
+
+        $result = json_decode($response,true);
+
+        $data = array();
+
+        foreach($result['results']['0']['address_components'] as $element){
+            $data[ implode(' ',$element['types']) ] = $element['long_name'];
+        }
+        
+
+        $city = $data['locality political'];
+
+        $isShip = Shipping::where('city_name','like','%'.$city.'%')->count();
+
+        if($isShip == 1)
+        {
+            session(['delivery_lat' => $input['delivery_lat']]);
+            session(['delivery_long' => $input['delivery_long']]);
+
+            Session::flash('delivery', '1'); 
+
+            return redirect('/');
+        }
+        else
+        {
+            return redirect('/location-results');
+        }
 
         return redirect('/');
+    }
+
+    public function ApiShipping(Request $request)
+    {
+        $input = $request->all();
+
+        $curlService = new CurlService();
+
+        $response = $curlService->to('https://maps.googleapis.com/maps/api/geocode/json')
+        ->withData( array(  'address' => $input['address'],
+                            'key' => 'AIzaSyDLhmlgfJ1tfqc3omBsKO8ZdkwzbRRSbN0',
+                    ) )
+        ->get();
+
+        $result = json_decode($response,true);
+
+        $data = array();
+
+        foreach($result['results']['0']['address_components'] as $element){
+            $data[ implode(' ',$element['types']) ] = $element['long_name'];
+        }
+        
+
+        $city = $data['locality political'];
+
+        $isShip = Shipping::where('city_name','like','%'.$city.'%')->count();
+
+        return $isShip;
     }
 
     public function package($package_slug)
@@ -239,11 +301,11 @@ class FrontController extends Controller
 	    $order->grand_price = floatval($input['grand_price']);
 	    $order->checkout_date = $input['checkout_date'];
 	    $order->checkout_time = $input['checkout_time'];
-	    $order->checkout_delivery_address_1 = $input['checkout_delivery_address_1'];
-	    $order->checkout_delivery_address_2 = $input['checkout_delivery_address_2'];
+	    $order->checkout_delivery_address_1 = 'null';
+	    $order->checkout_delivery_address_2 = 'null';
 	    $order->checkout_delivery_postcode = $input['checkout_delivery_postcode'];
 	    $order->checkout_delivery_city = $input['checkout_delivery_city'];
-	    $order->checkout_delivery_state = $input['checkout_delivery_state'];
+	    $order->checkout_delivery_state = 'null';
 	    $order->checkout_note = $input['checkout_note'];
         $order->checkout_lat = $input['delivery_lat'];
         $order->checkout_long = $input['delivery_long'];

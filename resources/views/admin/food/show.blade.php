@@ -76,7 +76,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-block btn-primary">Update Food</button>
+                                        <button type="submit" class="btn btn-block btn-primary">Update Item</button>
                                     </form>
                                 </div>
                             </div>

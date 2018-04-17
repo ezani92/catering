@@ -99,74 +99,36 @@ class FoodController extends Controller
             $file->move($destinationPath,$filename);
 
             $food->food_image = $filename;
-
-            $food->food_category_id = $input['food_category'];
-            $food->name = $input['name'];
-            if(isset($_POST['chef_hat'])) {
-
-                $food->chef_hat = $_POST['chef_hat'];
-    
-            }
-
-            else {
-
-                $food->chef_hat = 0;
-
-            }
-
-            if(isset($_POST['is_new'])) {
-
-                $food->is_new = $_POST['is_new'];
-    
-            }
-
-            else {
-
-                $food->is_new = 0;
-
-            }
-            $food->price = $input['price'];
-            $food->min = $input['minimum_purchase'];
-            $food->max = $input['maximum_purchase'];
-
-            $food->save();
         }
+
+        $food->food_category_id = $input['food_category'];
+        $food->name = $input['name'];
+
+        if(isset($input['chef_hat']))
+        {
+            $food->chef_hat = $input['chef_hat'];
+        }
+
         else
         {
-            $food->food_category_id = $input['food_category'];
-            $food->name = $input['name'];
-
-            if(isset($_POST['chef_hat'])) {
-
-            $food->chef_hat = $_POST['chef_hat'];
-
-            }
-
-            else {
-
-                $food->chef_hat = 0;
-
-            }
-
-            
-            if(isset($_POST['is_new'])) {
-
-                $food->is_new = $_POST['is_new'];
-    
-            }
-
-            else {
-
-                $food->is_new = 0;
-
-            }
-
-            $food->price = $input['price'];
-            $food->min = $input['minimum_purchase'];
-            $food->max = $input['maximum_purchase'];
-
-            $food->save();
+            $food->chef_hat = 0;
         }
+
+        if(isset($input['is_new']))
+        {
+            $food->is_new = $input['is_new'];
+        }
+
+        else
+        {
+            $food->is_new = 0;
+        }
+
+        $food->price = $input['price'];
+        $food->min = $input['minimum_purchase'];
+        $food->max = $input['maximum_purchase'];
+
+        $food->save();
 
         Session::flash('message', 'New Food Was Successfully Added!'); 
         Session::flash('alert-class', 'alert-success');

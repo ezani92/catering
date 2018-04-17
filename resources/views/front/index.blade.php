@@ -45,28 +45,25 @@
         </div>
         <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog" style="padding-top: 15%;">
+            <div class="modal-dialog" >
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <form method="post" action="{{ url('/set-shipping') }}">
+                    <form id="mapForm" method="post" action="{{ url('/check-shipping') }}">
                     {{ csrf_field() }}
                         <div class="modal-header">
-                            <h4 class="modal-title">Please select a delivery location</h4>
+                            <h4 class="modal-title">Check if we deliver to your area!</h4>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label>Select City</label>
-                                <select name="checkout_delivery_city" id="city_delivery" class="form-control select2" required>
-                                        <option value="" data-rate="0">Select</option>
-                                    @foreach(\App\Shipping::all() as $shipping)
-                                        <option value="{{ $shipping->city_name }}" data-rate="{{ $shipping->rate }}">{{ $shipping->city_name }}</option>
-                                    @endforeach
-                                </select>
+                                <label>Drag Delivery Location On Map Below, If you cant find your address, Please drag the marker to nearest location.</label>
+                                <input type="text" name="google_map" id="google_map" class="form-control" required>
+                                <div id="somecomponent" style="width: 100%; height: 400px;"></div>
+                                <input type="hidden" id="delivery_lat" name="delivery_lat">
+                                <input type="hidden" id="delivery_long" name="delivery_long">
                             </div>
-                            <p>*If you cant find your location above means we are not able to deliver to that location</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Continue</button>
+                            <button type="submit" class="btn btn-primary">Check Location</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Select Later</button>
                         </div>
                     </form>
@@ -75,14 +72,77 @@
         </div>
     @include('frontLayouts.footer')
     <script type="text/javascript">
-        @php
-            $shipping = session('shipping_location');
-            if($shipping == null)
-            {
-                echo "$('#myModal').modal('show');";
-            }
-        @endphp
+
+    $(document).ready(function(){
+
+        
+
+       
         $('.select2').select2();
+
+         $('#somecomponent').locationpicker({
+             location: {
+                 latitude: 3.0733,
+                 longitude: 101.5054 
+             },
+             radius: false,
+             inputBinding: {
+                 locationNameInput: $('#google_map'),
+                 latitudeInput: $('#delivery_lat'),
+                 longitudeInput: $('#delivery_long')
+             },
+             onchanged: function(currentLocation, radius, isMarkerDropped) {
+
+             },
+             markerInCenter: false,
+             enableAutocomplete: true,
+             addressFormat: 'street_address',
+             autocompleteOptions: {
+                 types: ['address'],
+                 componentRestrictions: {
+                     country: 'my'
+                 }
+             }
+         });
+
+        $('#mapForm').on('keyup keypress', function(e) {
+            var keyCode = e.keyCode || e.which;
+            
+            if (keyCode === 13) { 
+                e.preventDefault();
+                return false;
+            }
+        }); 
+
+     });
+
+    </script>
+    <style>
+        .pac-container {
+            z-index: 10000 !important;
+        }
+
+        .modal-header {
+            border-bottom:1px solid #eee;
+            background-color: #005344;
+            color: white;
+         }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            @if(Session::has('delivery'))
+                swal({
+                    title: "Hooray!",
+                    text: "We can deliver to your location! =)",
+                    type: "success",
+                    confirmButtonText: "Proceed Order",
+                });
+            @else
+                 $('#myModal').modal('show');
+            @endif
+
+        }); 
     </script>
     </body>
 </html>

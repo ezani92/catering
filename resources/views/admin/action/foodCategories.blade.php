@@ -1,1 +1,1 @@
-<a href="{{ URL::to('admin/item-category/'.$foodCategory->id.'/delete') }}" class="btn btn-xs btn-danger">Delete</a>
+<a href="{{ URL::to('admin/item-category/'.$foodCategory->id.'/edit') }}" class="btn btn-xs btn-primary">Edit</a> <a href="{{ URL::to('admin/item-category/'.$foodCategory->id.'/delete') }}" class="btn btn-xs btn-danger">Delete</a>

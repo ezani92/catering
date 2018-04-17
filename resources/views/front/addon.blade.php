@@ -70,6 +70,7 @@
                                 </div>
                             </div>
                         </div>
+                        <img style="display: none;" id="view_image" width="100%" src="https://via.placeholder.com/600x350&text=No%20Image%20Available">
                     </div>
                     <div class="col-md-3">
                     </div>
@@ -87,7 +88,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <h1 style="margin-top: 0px;">Add-on Order(s)</h1>
+                                <h1 style="margin-top: 0px;">Add-on Order</h1>
                                 <br />
                             </div>
                         </div>
@@ -109,7 +110,9 @@
                                         @endif
 
                                     @endforeach
-                                    <br /><br />
+                                    <br />
+                                    <hr style="border-top: 2px dashed #005344;" />
+                                    <h1 style="margin-top: 0px;">Rental Services</h1><br />
                                     @foreach($other_categories as $other_category)
 
                                         <li style="display: inline-block; float: none; background-color: #fff; margin-bottom: 10px;"><a style=" text-transform: uppercase;" data-toggle="tab" href="#{{ $other_category->id }}">{{ $other_category->name }}</a></li>
@@ -137,7 +140,13 @@
                                                 @foreach($item_category->foods as $food)
 
                                                     <div class="col-md-6">
-                                                    <div class="well"> 
+                                                    <div class="well texthover" 
+                                                    @if($food->food_image == null)
+                                                        data-image="null"
+                                                    @else 
+                                                        data-image="{{ url('/') }}/storage/food/{{ $food->food_image }}"
+                                                    @endif
+                                                    > 
                                                         <h5 style="margin-bottom: 0px;">{{ $food->name }}</h5>
                                                         <span>RM {{ $food->price }} (RM {{ $food->price * 1.06 }} w/GST) - Min {{ $food->min }} Set</span>
                                                         <br /><br />
@@ -280,6 +289,27 @@
 
         $("#input_quantity_list_"+id).val(quantity);
     }
+
+    $('.texthover').mouseover(function(){
+            
+        var food_image = $(this).data("image");
+
+        if(food_image == 'null')
+        {
+
+        }
+        else
+        {
+            $("#view_image").attr("src",food_image);
+            $("#view_image").show();
+        }
+            
+
+    });
+
+    $('.texthover').mouseout(function(){
+       $("#view_image").hide();
+    });
 
 
 

@@ -22,7 +22,7 @@
                 <br /><br /><br />
                 <div class="main-content container-fluid">
                     <div class="splash-container">
-                        <div class="panel panel-default panel-border-color panel-border-color-default">
+                        <div class="panel panel-default panel-border-color panel-border-color-primary">
                             <div class="panel-heading"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/logo.png') }}"></a><span class="splash-description">Please enter your user information.</span></div>
                             <div class="panel-body">
                                 <form method="POST" action="{{ route('login') }}">

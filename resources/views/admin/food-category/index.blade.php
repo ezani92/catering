@@ -16,11 +16,11 @@
                                     {{ csrf_field() }}
                                     <div class="form-group">
                                         <label>Category name</label>
-                                        <input type="text" name="name" class="form-control input-sm">
+                                        <input type="text" name="name" class="form-control input-sm" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Category Type</label>
-                                        <select name="category_type" class="form-control">
+                                        <select name="category_type" class="form-control" required>
                                             <option value="food">food</option>
                                             <option value="other">other</option>
                                         </select>

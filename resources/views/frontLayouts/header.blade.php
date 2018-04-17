@@ -10,7 +10,7 @@
         <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/lib/perfect-scrollbar/css/perfect-scrollbar.min.css') }}"/>
         <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/lib/material-design-icons/css/material-design-iconic-font.min.css') }}"/>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.2/sweetalert2.min.css">
+        <link rel="stylesheet" type="text/css" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/istvan-ujjmeszaros/bootstrap-touchspin/b87fa994/dist/jquery.bootstrap-touchspin.min.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
         <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">

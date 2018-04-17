@@ -99,6 +99,11 @@ class FrontController extends Controller
         return $isShip;
     }
 
+    public function location()
+    {
+        return view('front.location');
+    }
+
     public function package($package_slug)
     {
     	$package = Package::where('slug',$package_slug)->first();

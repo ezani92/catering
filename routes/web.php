@@ -19,7 +19,7 @@ Route::get('/', 'FrontController@index');
 Route::post('/check-shipping', 'FrontController@CheckShipping');
 Route::post('api/check-shipping', 'FrontController@ApiShipping');
 Route::get('/invoice/{hash_id}', 'FrontController@invoice');
-
+Route::get('location-results', 'FrontController@location');
 Route::post('order/add-on', 'FrontController@addon');
 Route::post('order/check-out', 'FrontController@checkoutPost');
 Route::post('order/payment', 'FrontController@payment');

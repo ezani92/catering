@@ -273,4 +273,51 @@ class SetController extends Controller
 
         return redirect('admin/set/'.$set_id);
     }
+
+    public function coursesEdit($set_id, $course_category_id)
+    {
+        $set = Set::find($set_id);
+        $CourseCategory = CourseCategory::find($course_category_id);
+
+        $courses = $CourseCategory->courses;
+
+        $foods = Food::all()->pluck('name','id');
+
+        return view('admin.sets.editCourses',compact('set','CourseCategory','courses','foods'));
+    }
+
+    public function coursesUpdate(Request $request, $set_id, $course_category_id)
+    {
+        $input = $request->all();
+
+        $CourseCategory = CourseCategory::find($course_category_id);
+        $CourseCategory->name = $input['food_category'];
+        $CourseCategory->maximum_selection = $input['maximum_select'];
+
+        if(isset($input['multiple']))
+        {
+            $CourseCategory->allow_multiple = $input['multiple'];
+        }
+        else
+        {
+            $CourseCategory->allow_multiple = 0;
+        }
+
+        if(isset($input['compulsory']))
+        {
+            $CourseCategory->compulsory = $input['compulsory'];
+        }
+        else
+        {
+            $CourseCategory->compulsory = 0;
+        }
+
+
+        $CourseCategory->save();
+
+        Session::flash('message', 'Courses Was Successfully Updated!'); 
+        Session::flash('alert-class', 'alert-success');
+
+        return redirect('admin/set/'.$set_id);
+    }
 }

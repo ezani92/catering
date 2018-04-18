@@ -92,6 +92,11 @@ Route::middleware(['isadmin'])->group(function () {
     Route::get('admin/set/{set_id}/edit', 'SetController@edit');
     Route::put('admin/set/{set_id}/update', 'SetController@update');
 
+    Route::get('admin/set/{set_id}/courses/{course_category_id}/edit', 'SetController@coursesEdit');
+    Route::post('admin/set/{set_id}/courses/{course_category_id}/update', 'SetController@coursesUpdate');
+
+    
+
     Route::get('admin/shipping', 'ShippingController@index');
     Route::get('admin/shipping-data', 'ShippingController@data');
     Route::post('admin/shipping', 'ShippingController@store');

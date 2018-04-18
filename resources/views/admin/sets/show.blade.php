@@ -104,7 +104,7 @@
                                                     Single Selection
                                                 @endif
                                             </td>
-                                            <td><a href="#" class="btn btn-primary">Edit</a></td>
+                                            <td><a href="{{ url('admin/set/'.$set->id.'/courses/'.$courseCategory->id.'/edit') }}" class="btn btn-primary">Edit</a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>

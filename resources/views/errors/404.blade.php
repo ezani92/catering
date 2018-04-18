@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Teaffani | Page Not Found</title>
+<title>Catering | Page Not Found</title>
 
 <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/css/robot_page.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/css/robot_styles.css') }}">
@@ -112,7 +112,7 @@
 		
 			<div>
 				<p id="robot-text">Page Not Found</p>
-				<p>Whoops! Teaffani Robot cant find the page that you want. Help him by hitting any button below.</p>
+				<p>Whoops! Our robot cant find the page that you want. Help him by hitting any button below.</p>
 				<div class="robot-buttons">
 					<a class="robot-buttons" href="{{ url('/') }}">Home</a> 
 					<a class="robot-buttons" href="https://teaffani.com/contact">Contact</a>

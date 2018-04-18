@@ -5,7 +5,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="shortcut icon" href="">
-        <title>Teaffani Online Ordering System</title>
+        <title>Online Ordering System</title>
         <link href="https://fonts.googleapis.com/css?family=Cabin:100,200,300,400,600" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/lib/perfect-scrollbar/css/perfect-scrollbar.min.css') }}"/>
         <link rel="stylesheet" type="text/css" href="{{ secure_asset('assets/lib/material-design-icons/css/material-design-iconic-font.min.css') }}"/>

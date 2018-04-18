@@ -76,6 +76,7 @@
                                         	<th>Courses categories</th>
                                         	<th>Courses</th>
                                             <th>Selection Type</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -103,6 +104,7 @@
                                                     Single Selection
                                                 @endif
                                             </td>
+                                            <td><a href="#" class="btn btn-primary">Edit</a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>

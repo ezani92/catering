@@ -21,9 +21,13 @@
 		                        	<input type="hidden" name="package_id" value="{{ $set->package_id }}">
 		                        	<input type="hidden" name="set_id" value="{{ $set->id }}">
 		                        	@for($i = 0; $i < $set->courses; $i++)
-		                            	<div class="row">
+		                            	<div class="row" style="background-color: #eee; padding-top: 15px;">
 		                            		<div class="col-md-12">
-		                            			<input type="text" name="food_category[]" class="form-control" placeholder="Courses Category Name (Rice / Noodles / Vagetable / Baverage / etc">
+		                            			<input type="text" name="food_category[]" class="form-control" placeholder="Courses Category Name (Rice / Noodles / Vagetable / Baverage / etc)">
+		                            		</div>
+		                            		<br />&nbsp;<br />
+		                            		<div class="col-md-12">
+		                            			<input type="number" min="1" name="maximum_select{{ $i }}" class="form-control" placeholder="How many item need to be selected on this category?">
 		                            		</div>
 		                            		&nbsp;<br />
 		                            		<div id="food_list{{ $i }}">
@@ -48,8 +52,14 @@
                           							<label for="check{{ $i }}">Allow Multiple Select</label>
                           						</div>
 		                            		</div>
-		                            		&nbsp;<br />
-		                            		<hr /><hr />
+		                            		<div class="col-md-12">
+		                            			<div class="be-checkbox be-checkbox-color inline">
+		                            				<input id="compulsory{{ $i }}" type="checkbox" name="compulsory{{$i}}" value="1">
+                          							<label for="compulsory{{ $i }}">Compulsory Category (Need To Be Choose at least 1)</label>
+                          						</div>
+		                            		</div>
+		                            		&nbsp;<br />&nbsp;<br />
+		                            		
 		                            	</div>
 		                            	<br />
 		                            @endfor

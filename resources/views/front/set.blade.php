@@ -70,10 +70,10 @@
                             <input name="_setID" type="hidden" value="{{ $set->id }}">
                             @foreach($set->course_categories as $course_categories)
                             <div class="col-md-6">
-                                <div id="cat_div_{{ $course_categories->id }}" class="panel panel-default panel-package compulsory">
+                                <div id="cat_div_{{ $course_categories->id }}" class="panel panel-default panel-package {{ $course_categories->compulsory === 1 ? "compulsory" : "" }} ">
                                     <div class="panel-body  row-eq-height">
                                         <h3 style="color: #01493c;">
-                                            {{ $course_categories->name }} <span style="color:#ff0000;"> - select 1 - </span>
+                                            {{ $course_categories->name }} <span style="color:#ff0000;"> - select  {{ $course_categories->maximum_selection }} - </span>
                                         </h3>
                                         <input name="CategoryName" type="hidden" value="{{ $course_categories->name }}" />
                                         <input name="_CourseCategories[]" type="hidden" value="{{ $course_categories->id }}" />

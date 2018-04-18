@@ -17,6 +17,9 @@ class CreateCourseCategoriesTable extends Migration
             $table->increments('id');
             $table->integer('set_id');
             $table->string('name');
+            $table->integer('allow_multiple')->default(0);
+            $table->integer('maximum_selection')->default(1);
+            $table->integer('compulsory')->default(0);
             $table->timestamps();
         });
     }

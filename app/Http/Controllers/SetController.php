@@ -94,6 +94,7 @@ class SetController extends Controller
                 $courseCategory = new CourseCategory;
                 $courseCategory->set_id = $input['set_id'];
                 $courseCategory->name = $food_category;
+                $courseCategory->maximum_selection = $input['maximum_select'.$i];
 
                 if(isset($input['multiple'.$i]))
                 {
@@ -102,6 +103,15 @@ class SetController extends Controller
                 else
                 {
                     $courseCategory->allow_multiple = 0;
+                }
+
+                if(isset($input['compulsory'.$i]))
+                {
+                    $courseCategory->compulsory = $input['compulsory'.$i];
+                }
+                else
+                {
+                    $courseCategory->compulsory = 0;
                 }
 
                 

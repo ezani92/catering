@@ -75,7 +75,7 @@
                                         <h3 style="color: #01493c;">
                                             {{ $course_categories->name }} 
                                         </h3>
-                                        <code class="text-center" style="color:#0a0;">Minimum Selection :  {{ $course_categories->maximum_selection }}</code>
+                                        <code class="text-center" style="color:#0a0;">[ Minimum Selection :  {{ $course_categories->maximum_selection  }} ] [ Compulsory : {{ $course_categories->compulsory === 1 ? "Yes" : "No" }} ]</code>
                                         <input name="CategoryName" type="hidden" value="{{ $course_categories->name }}" />
                                         <input name="_CourseCategories[]" type="hidden" value="{{ $course_categories->id }}" />
                                         <hr />

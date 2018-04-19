@@ -183,7 +183,7 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label><strong>Phone Number</strong></label>
-                                                <input type="number" data-min-length="10" name="checkout_phone" class="form-control" required>
+                                                <input type="text" pattern=".{10,}" name="checkout_phone" class="form-control" required title="Please use valid phone number">
                                             </div>
                                         </div>
                                         <div class="form-group">

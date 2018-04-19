@@ -17,8 +17,10 @@ class PackageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('admin.package.index');
+    {   
+        $packages = Package::all();
+
+        return view('admin.package.index',compact('packages'));
     }
 
     public function data(Datatables $datatables)
@@ -58,10 +60,16 @@ class PackageController extends Controller
 
 
             })
+            ->editColumn('sort', function ($package) {
+                
+                return '<i class="handle mdi mdi-menu"></i>';
+
+
+            })
             ->editColumn('updated_at', function ($package) {
                 return $package->updated_at ? with(new Carbon($package->updated_at))->format('d M Y, h:i A') : '';
             })
-            ->rawColumns(['actions','pdf_file','status','display'])
+            ->rawColumns(['actions','pdf_file','status','display','sort'])
             ->make(true);
     }
 

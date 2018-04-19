@@ -265,8 +265,8 @@ class FrontController extends Controller
 
 			$curlService = new CurlService();
 
-	        $response = $curlService->to('https://www.billplz.com/api/v3/bills/')
-	        ->withData( array( 'collection_id' => '_ku6cmmq',
+	        $response = $curlService->to('https://billplz-staging.herokuapp.com/api/v3/bills/')
+	        ->withData( array( 'collection_id' => 'tqvc_clu',
 	                           'email' => $input['checkout_email'],
 	                           'mobile' => $input['checkout_phone'],
 	                           'name' => $input['checkout_name'],
@@ -276,7 +276,7 @@ class FrontController extends Controller
 	                           'deliver' => false,
 	                           'description' => 'Teaffani Online Order'
 	                     ) )
-	        ->withOption('USERPWD', 'a4c3f66e-2549-49be-89ff-ff197d3bd22b:')
+	        ->withOption('USERPWD', '803c2e9e-1dc6-4798-845d-f7c5c05ef4ce:')
 	        ->post();
 
 	        $result = json_decode($response,true);

@@ -183,7 +183,7 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label><strong>Phone Number</strong></label>
-                                                <input type="text" name="checkout_phone" class="form-control" required>
+                                                <input type="number" minlength="10" name="checkout_phone" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="form-group">

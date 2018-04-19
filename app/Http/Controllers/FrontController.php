@@ -22,7 +22,7 @@ class FrontController extends Controller
 {
     public function index()
     {
-    	$packages = Package::where('is_display',1)->get();
+    	$packages = Package::where('is_display',1)->orderBy('position', 'asc')->get();
 
     	return view('front.index',[
     		'packages' => $packages

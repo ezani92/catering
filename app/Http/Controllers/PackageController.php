@@ -18,7 +18,7 @@ class PackageController extends Controller
      */
     public function index()
     {   
-        $packages = Package::all();
+        $packages = Package::where('id','>',0)->orderBy('position', 'asc')->get();
 
         return view('admin.package.index',compact('packages'));
     }
@@ -230,5 +230,27 @@ class PackageController extends Controller
         Session::flash('alert-class', 'alert-success');
 
         return redirect('admin/package/'.$package_id);
+    }
+
+    public function reposition(Request $request)
+    {
+        $input = $request->all();
+
+
+        if(isset($input['package']))
+        {
+            $i = 0;
+            foreach($input['package'] as $id)
+            {
+                $i++;
+                $package = Package::find($id);
+                $package->position = $i;
+                $package->save();
+            }
+        }
+        else
+        {
+            
+        }
     }
 }

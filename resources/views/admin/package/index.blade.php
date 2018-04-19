@@ -29,7 +29,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach($packages as $package)
-                                            <tr>
+                                            <tr id="package_{{ $package->id }}">
                                                 <td>{{ $package->name }}</td>
                                                 <td>{{ $package->description }}</td>
                                                 <td>RM {{ $package->price_start }}</td>
@@ -77,7 +77,9 @@
             },
             'handle': '.handle',
             update: function(event, ui) {
-               
+                $.post('{{ url('admin/package/reposition') }}', $(this).sortable('serialize'), function(data) {
+                    alert(data.success);
+                }, 'json');
             }
         });
         $(window).resize(function() {

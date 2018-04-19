@@ -24,6 +24,7 @@ class CreatePackagesTable extends Migration
             $table->string('pdf_file')->nullable();
             $table->longText('terms');
             $table->integer('is_display')->default(0);
+            $table->integer('position')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

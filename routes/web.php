@@ -60,6 +60,7 @@ Route::middleware(['isadmin'])->group(function () {
     Route::get('admin/order-data', 'OrderController@data');
 
     Route::get('admin/package', 'PackageController@index');
+    Route::post('admin/package/reposition', 'PackageController@reposition');
     Route::get('admin/package-data', 'PackageController@data');
     Route::get('admin/package/create', 'PackageController@create');
     Route::post('admin/package/create', 'PackageController@store');

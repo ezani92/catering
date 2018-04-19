@@ -15,5 +15,6 @@ class VerifyCsrfToken extends BaseVerifier
         //
         '/order/callback',
         '/api/check-shipping',
+        '/admin/package/reposition',
     ];
 }

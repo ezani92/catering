@@ -20,7 +20,7 @@ class Package extends Model
 
     public function sets()
     {
-    	return $this->hasMany('App\Set')->withTrashed();
+    	return $this->hasMany('App\Set')->withTrashed()->orderBy('position','asc');
     }
 
     public function orders()

@@ -320,4 +320,26 @@ class SetController extends Controller
 
         return redirect('admin/set/'.$set_id);
     }
+
+    public function reposition(Request $request)
+    {
+        $input = $request->all();
+
+
+        if(isset($input['set']))
+        {
+            $i = 0;
+            foreach($input['set'] as $id)
+            {
+                $i++;
+                $set = Set::find($id);
+                $set->position = $i;
+                $set->save();
+            }
+        }
+        else
+        {
+            
+        }
+    }
 }

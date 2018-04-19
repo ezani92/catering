@@ -57,6 +57,7 @@
                         @endif
                         <a href="{{ url('admin/package/'.$package->id.'/edit') }}" class="btn btn-block btn-info">Edit Package</a>
                         <a href="{{ url('admin/set/create') }}" class="btn btn-block btn-warning">Create New Set</a>
+                        <button data-toggle="modal" data-target="#md-default" class="btn btn-block btn-default">Sorting Set</button>
                     </div>
                 </div>
                 <div class="row">
@@ -96,6 +97,34 @@
                     
                 </div>
             </div>
+            <div id="md-default" tabindex="-1" role="dialog" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4>Sorting Set By Priority</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table id="set-table" class="table">
+                                <thead>
+                                    <th>Set Name</th>
+                                    <th class="text-center">Drag To Sort</th>
+                                </thead>
+                                <tbody>
+                                @foreach($package->sets as $set)
+                                    <tr id="set_{{ $set->id }}">
+                                        <td>{{ $set->name }}</td>
+                                        <td class="text-center"><i class="handle mdi mdi-menu"></i></td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{{ url()->full() }}"><button class="btn btn-space btn-primary">Save</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     @include('admin.layouts.footer')
     </body>
@@ -133,5 +162,28 @@
 
             return false;
         }
+    </script>
+    <script>
+        $('#set-table > tbody').sortable({
+            'containment': 'parent',
+            'revert': true,
+            helper: function(e, tr) {
+                var $originals = tr.children();
+                var $helper = tr.clone();
+                $helper.children().each(function(index) {
+                    $(this).width($originals.eq(index).width());
+                });
+                return $helper;
+            },
+            'handle': '.handle',
+            update: function(event, ui) {
+                $.post('{{ url('admin/set/reposition') }}', $(this).sortable('serialize'), function(data) {
+                    alert(data.success);
+                }, 'json');
+            }
+        });
+        $(window).resize(function() {
+            $('table.db tr').css('min-width', $('table.db').width());
+        });
     </script>
 </html>

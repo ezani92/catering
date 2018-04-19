@@ -112,7 +112,7 @@ class FrontController extends Controller
             abort(404);
         }
 
-    	$sets = Set::where('package_id', $package->id)->get();
+    	$sets = Set::where('package_id', $package->id)->orderBy('position', 'asc')->get();
 
     	return view('front.package',[
     		'sets' => $sets,

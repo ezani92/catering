@@ -83,6 +83,7 @@ Route::middleware(['isadmin'])->group(function () {
     Route::get('admin/item-category/{category_id}/edit', 'FoodCategoryController@edit');
     Route::post('admin/item-category/{category_id}/update', 'FoodCategoryController@update');
 
+    Route::post('admin/set/reposition', 'SetController@reposition');
     Route::get('admin/set/create', 'SetController@create');
     Route::post('admin/set/create/step2', 'SetController@step2');
     Route::post('admin/set/create/step3', 'SetController@step3');

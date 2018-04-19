@@ -75,7 +75,10 @@
                                         <h3 style="color: #01493c;">
                                             {{ $course_categories->name }} 
                                         </h3>
-                                        <code class="text-center" style="color:#0a0; font-size: 14px;">[ Minimum Selection :  {{ $course_categories->maximum_selection  }} ] [ Compulsory : {{ $course_categories->compulsory === 1 ? "Yes" : "No" }} ]</code>
+                                        <code class="text-center" style="color:#0a0; font-size: 14px;">Minimum Selection :  {{ $course_categories->maximum_selection  }} | Compulsory : {{ $course_categories->compulsory === 1 ? "Yes" : "No" }}</code><br />
+                                        @if($course_categories->maximum_selection > 1)
+                                            <sub>* If only one(1) is selected, we will assume that you want both your selection to be the same dish!</sub>
+                                        @endif
                                         <input name="CategoryName" type="hidden" value="{{ $course_categories->name }}" />
                                         <input name="_CourseCategories[]" type="hidden" value="{{ $course_categories->id }}" />
                                         <hr />

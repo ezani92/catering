@@ -75,7 +75,7 @@
                                         <h3 style="color: #01493c;">
                                             {{ $course_categories->name }} 
                                         </h3>
-                                        <code class="text-center" style="color:#0a0;">[ Minimum Selection :  {{ $course_categories->maximum_selection  }} ] [ Compulsory : {{ $course_categories->compulsory === 1 ? "Yes" : "No" }} ]</code>
+                                        <code class="text-center" style="color:#0a0; font-size: 14px;">[ Minimum Selection :  {{ $course_categories->maximum_selection  }} ] [ Compulsory : {{ $course_categories->compulsory === 1 ? "Yes" : "No" }} ]</code>
                                         <input name="CategoryName" type="hidden" value="{{ $course_categories->name }}" />
                                         <input name="_CourseCategories[]" type="hidden" value="{{ $course_categories->id }}" />
                                         <hr />
@@ -83,7 +83,7 @@
                                             @foreach($course_categories->courses as $course)
                                                 @if($course->additional_price == 0)
                                                     <div class="be-checkbox">
-                                                        <input name="_courses[]" value="{{ $course->id }}" data-additional="0" data-additional-price="0" id="food_{{ $course->food->id }}" type="checkbox" class="count-course food_class_{{ $course->course_category_id }}">
+                                                        <input name="_courses[]" value="{{ $course->id }}" data-additional="0" data-additional-price="0" data-category="{{ $course_categories->id }}" data-maximum="{{ $course_categories->maximum_selection }}" id="food_{{ $course->food->id }}" type="checkbox" class="count-course count-category cat{{ $course_categories->id }} food_class_{{ $course->course_category_id }}">
                                                         <label style="display: block; padding: 1px 2px;" class="radio-label texthover" for="food_{{ $course->food->id }}" 
                                                             @if($course->food->food_image == null)
                                                                 data-image="null"
@@ -106,7 +106,7 @@
                                                     </div>
                                                 @else
                                                     <div class="be-checkbox">
-                                                        <input name="_courses[]" value="{{ $course->id }}" data-additional="1" data-additional-price="{{ $course->additional_price }}" id="food_{{ $course->food->id }}" type="checkbox" class="count-course food_class_{{ $course->course_category_id }}">
+                                                        <input name="_courses[]" value="{{ $course->id }}" data-additional="1" data-additional-price="{{ $course->additional_price }}" data-category="{{ $course_categories->id }}" data-maximum="{{ $course_categories->maximum_selection }}" id="food_{{ $course->food->id }}" type="checkbox" class="count-course count-category cat{{ $course_categories->id }} food_class_{{ $course->course_category_id }}">
                                                         <label style="display: block; padding: 1px 2px;" class="radio-label texthover" for="food_{{ $course->food->id }}" data-image="
                                                             @if($course->food->food_image == null)
                                                                 https://via.placeholder.com/600x350&text=No%20Image%20Available
@@ -240,6 +240,39 @@
                 {
                     
                 }
+
+                
+            }
+        });
+
+        $(".count-category").change(function()
+        {
+            if(this.checked)
+            {
+                
+               var category = $(this).data("category");
+               var maximum = $(this).data("maximum");
+
+               var totalCheckboxes = $(".cat"+category+":checked").length;
+
+                if(totalCheckboxes > maximum)
+                {
+                    
+                    swal({
+                        title: 'Whoops!',
+                        text: "You can only select "+ maximum +" menus from this category",
+                        type: 'warning',
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                    });
+
+                    $(this).prop('checked', false);
+                }
+                else
+                {
+
+                }
+                   
 
                 
             }

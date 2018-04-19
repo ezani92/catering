@@ -86,7 +86,11 @@
 
                                             @endphp
                                             @endforeach
+                                        @else
+                                            <input type="hidden" name="addon_id[]" value="">
+                                            <input type="hidden" name="addon_quantity[]" value="">
                                         @endif
+
                                         
                                         <input type="hidden" id="setprice" name="set_price" value="{{ $input['_set_price'] }}">
                                         <input type="hidden" id="addon_price" name="addon_price" value="{{ $add_on_price }}">
@@ -174,34 +178,34 @@
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label><strong>email Address</strong></label>
+                                                <label><strong>Email Address</strong></label>
                                                 <input type="text" name="checkout_email" class="form-control" value="{{ Auth::user()->email }}" required>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label><strong>phone Number</strong></label>
+                                                <label><strong>Phone Number</strong></label>
                                                 <input type="text" name="checkout_phone" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label><strong>address 1 (Billing)</strong></label>
+                                            <label><strong>Address 1 (Billing)</strong></label>
                                             <input type="text" name="checkout_billing_address_1" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <label><strong>address 2 (Billing)</strong></label>
-                                            <input type="text" name="checkout_billing_address_2" class="form-control" required>
+                                            <label><strong>Address 2 *optional (Billing)</strong></label>
+                                            <input type="text" name="checkout_billing_address_2" class="form-control">
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-6">
-                                                <label><strong>poscode (Billing)</strong></label>
+                                                <label><strong>Postcode (Billing)</strong></label>
                                                 <input type="text" name="checkout_billing_poscode" class="form-control" required>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label><strong>city (Billing)</strong></label>
+                                                <label><strong>City (Billing)</strong></label>
                                                 <input type="text" name="checkout_billing_city" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label><strong>state (Billing)</strong></label>
+                                            <label><strong>State (Billing)</strong></label>
                                             <select name="checkout_billing_state" class="form-control" required>
                                                 <option>Selangor</option>
                                                 <option>Kuala Lumpur</option>

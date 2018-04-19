@@ -22,7 +22,7 @@ class CreateFoodsTable extends Migration
             $table->decimal('price', 10, 2);
             $table->string('min');
             $table->string('max');
-            $table->string('food_image');
+            $table->string('food_image')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

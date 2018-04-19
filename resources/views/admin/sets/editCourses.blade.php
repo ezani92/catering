@@ -64,7 +64,7 @@
 			                            		</div>
 		                            		@endif
 
-		                            		@if($CourseCategory->allow_multiple == 1)
+		                            		@if($CourseCategory->compulsory == 1)
 			                            		<div class="col-md-12">
 			                            			<div class="be-checkbox be-checkbox-color inline">
 			                            				<input id="compulsory" type="checkbox" name="compulsory" value="1" checked>

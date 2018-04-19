@@ -342,4 +342,28 @@ class SetController extends Controller
             
         }
     }
+
+    public function featured($set_id)
+    {
+        $set = Set::find($set_id);
+        $set->featured = 1;
+        $set->save();
+
+        Session::flash('message', 'Set Was Successfully Set as Featured!'); 
+        Session::flash('alert-class', 'alert-success');
+
+        return redirect('admin/package/'.$set->package->id);
+    }
+
+    public function unfeatured($set_id)
+    {
+        $set = Set::find($set_id);
+        $set->featured = 0;
+        $set->save();
+
+        Session::flash('message', 'Set Was Successfully Set as Unfeatured!'); 
+        Session::flash('alert-class', 'alert-success');
+
+        return redirect('admin/package/'.$set->package->id);
+    }
 }

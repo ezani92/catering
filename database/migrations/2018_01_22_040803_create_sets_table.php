@@ -25,9 +25,11 @@ class CreateSetsTable extends Migration
             $table->integer('max_pax');
             $table->string('image');
             $table->string('info');
+            $table->integer('featured')->default(0);
             $table->integer('position')->default(1);
             $table->timestamps();
             $table->softDeletes();
+
         });
     }
 

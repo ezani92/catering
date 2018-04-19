@@ -69,11 +69,18 @@
                 <div class="row">
                     @foreach($package->sets as $set)
                     <div class="col-md-4">
-                        <div class="panel panel-default panel-package">
+                        <div class="panel panel-default panel-package wrapper">
+                            @if($set->featured == 1)
+                                <div class="ribbon-wrapper-green"><div class="ribbon-green">featured</div></div>
+                            @endif
                             <span class="top-info">{{ $set->info }}</span>
                             <div class="panel-heading text-center" style="color: white; background-image: url({{ asset('storage/set/'.$set->image) }}); background-size: cover; margin: 0 0px;">    <br /><br /><br /><br /><br /><br /><br />
                             </div>
-                            <div class="panel-body text-center">
+                            <div class="panel-body text-center" style="
+                            @if($set->featured == 1)
+                                background-color: #BFDC7A;
+                            @endif
+                            ">
                                 <span style="font-size: 20px;">RM {{ $set->price }}</span><sup> / {{ $package->is_pax }}</sup>
                                 <span style="font-size: 20px; color: #DDD;">&nbsp; | &nbsp;</span>
                                 <span style="font-size: 20px;">RM {{ number_format($set->price * 1.06,2) }}</span><sup> / GST</sup>
@@ -90,6 +97,11 @@
                                 
                                 <br /><br />
                                 <a href="{{ url('order/'.$package->slug.'/'.$set->slug) }}" class="btn btn-default">View Set On Front End</a> <a href="{{ url('admin/set/'.$set->id) }}" class="btn btn-default">Manage Set</a>
+                                @if($set->featured == 1)
+                                    <a href="{{ url('admin/set/'.$set->id.'/unfeatured') }}" data-toggle="tooltip" data-placement="top" title="click to mark as not featured" class="btn btn-primary"><span class="mdi mdi-star"></span></a>
+                                @else
+                                    <a href="{{ url('admin/set/'.$set->id.'/featured') }}" data-toggle="tooltip" data-placement="top" title="click to mark as featured" class="btn btn-default"><span class="mdi mdi-star"></span></a>
+                                @endif
                             </div> 
                         </div>
                     </div>

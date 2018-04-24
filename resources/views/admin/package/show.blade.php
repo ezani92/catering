@@ -78,7 +78,7 @@
                             </div>
                             <div class="panel-body text-center" style="
                             @if($set->featured == 1)
-                                background-color: #BFDC7A;
+                                background-color: #fff;
                             @endif
                             ">
                                 <span style="font-size: 20px;">RM {{ $set->price }}</span><sup> / {{ $package->is_pax }}</sup>

@@ -16656,8 +16656,8 @@ box-shadow: 4px 4px 5px grey;
   left: -5px;
   top: 15px;
   width: 120px;
-  background-color: #BFDC7A;
-  color: #6a6340;
+  background-color: #e74c3c;
+  color: #eee;
   -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
   -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
   box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
@@ -16665,7 +16665,7 @@ box-shadow: 4px 4px 5px grey;
 
 .ribbon-green:before, .ribbon-green:after {
   content: "";
-  border-top:   3px solid #6e8900;   
+  border-top:   3px solid #c0392b;   
   border-left:  3px solid transparent;
   border-right: 3px solid transparent;
   position:absolute;
@@ -16680,5 +16680,5 @@ box-shadow: 4px 4px 5px grey;
 }​
 
 .featured {
-    background-color: #BFDC7A;
+    background-color: #fff;
 }

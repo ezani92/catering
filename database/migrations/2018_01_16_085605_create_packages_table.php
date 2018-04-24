@@ -25,6 +25,7 @@ class CreatePackagesTable extends Migration
             $table->longText('terms');
             $table->integer('is_display')->default(0);
             $table->integer('position')->default(1);
+            $table->integer('featured')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -18,19 +18,19 @@
                                             <div class="col-md-6">
                                                 <div class="form-group xs-pt-10">
                                                     <label>Package Name</label>
-                                                    <input name="name" type="text" class="form-control input-sm">
+                                                    <input name="name" type="text" class="form-control input-sm" required>
                                                 </div>
                                                 <div class="form-group xs-pt-10">
                                                     <label>Description</label>
-                                                    <textarea class="form-control description" name="description"></textarea>
+                                                    <textarea class="form-control description" name="description" required></textarea>
                                                 </div>
                                                 <div class="form-group xs-pt-10">
                                                     <label>Price Start From (RM)</label>
-                                                    <input name="price_start" type="text" class="form-control input-sm">
+                                                    <input name="price_start" type="text" class="form-control input-sm" required>
                                                 </div>
                                                 <div class="form-group xs-pt-10">
                                                     <label>Price Per?</sup></label>
-                                                    <select name="is_pax" class="form-control">
+                                                    <select name="is_pax" class="form-control" required>
                                                         <option value="Pax">Pax</option>
                                                         <option value="Item">Item</option>
                                                     </select>
@@ -39,7 +39,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group xs-pt-10">
                                                     <label>Show Pdf Menu</sup></label>
-                                                    <select name="is_pdf" class="form-control">
+                                                    <select name="is_pdf" class="form-control" required>
                                                         <option value="0">No</option>
                                                         <option value="1">Yes</option>
                                                     </select>
@@ -50,7 +50,7 @@
                                                 </div>
                                                 <div class="form-group xs-pt-10">
                                                     <label>Terms & Conditions</label>
-                                                    <textarea class="form-control terms" name="terms"></textarea>
+                                                    <textarea class="form-control terms" name="terms" required></textarea>
                                                 </div>
                                             </div>
                                         </div>

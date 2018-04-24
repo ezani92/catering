@@ -15,7 +15,10 @@
                 <div class="row">
                     @foreach($packages as $package)
                     <div class="col-md-6">
-                        <div class="panel panel-default panel-package">
+                        <div class="panel panel-default panel-package wrapper">
+                            @if($package->featured == 1)
+                                <div class="ribbon-wrapper-green"><div class="ribbon-green">featured</div></div>
+                            @endif
                             <div class="panel-heading text-center" style="color: white; background-image: url({{ asset('assets/img/stock/black-layer.png') }}), url({{ asset('assets/img/stock/food1.jpg') }}); margin: 0 0px;"> <span class="title">{{ $package->name }}</span>
                                 <br>
                                 <span style="font-size: 10px; color: grey;">

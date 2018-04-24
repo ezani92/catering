@@ -69,6 +69,8 @@ Route::middleware(['isadmin'])->group(function () {
     Route::get('admin/package/{package_id}/hide', 'PackageController@deactive');
     Route::get('admin/package/{package_id}/edit', 'PackageController@edit');
     Route::put('admin/package/{package_id}/update', 'PackageController@update');
+    Route::get('admin/package/{package_id}/unfeatured', 'PackageController@unfeatured');
+    Route::get('admin/package/{package_id}/featured', 'PackageController@featured');
 
     Route::get('admin/item', 'FoodController@index');
     Route::get('admin/item-data', 'FoodController@data');

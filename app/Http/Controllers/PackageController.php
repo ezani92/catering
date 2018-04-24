@@ -93,21 +93,26 @@ class PackageController extends Controller
     {
         $input = $request->all();
 
-        $file = $request->file('pdf');
-        
-        $filename = time().'.'.$file->getClientOriginalExtension();
-        
-        $destinationPath = 'storage/pdf';
-        $file->move($destinationPath,$filename);
-
         $package = new Package;
+
+        if ($request->hasFile('pdf'))
+        {
+            $file = $request->file('pdf');
+        
+            $filename = time().'.'.$file->getClientOriginalExtension();
+            
+            $destinationPath = 'storage/pdf';
+            $file->move($destinationPath,$filename);
+
+
+            $package->pdf_file = $filename;
+        }  
 
         $package->name = $input['name'];
         $package->description = $input['description'];
         $package->price_start = $input['price_start'];
         $package->is_pax = $input['is_pax'];
         $package->is_pdf = $input['is_pdf'];
-        $package->pdf_file = $filename;
         $package->terms = $input['terms'];
 
         $package->save();
@@ -252,5 +257,29 @@ class PackageController extends Controller
         {
             
         }
+    }
+
+    public function featured($package_id)
+    {
+        $package = Package::find($package_id);
+        $package->featured = 1;
+        $package->save();
+
+        Session::flash('message', 'Package Was Successfully Set as Featured!'); 
+        Session::flash('alert-class', 'alert-success');
+
+        return redirect('admin/package/');
+    }
+
+    public function unfeatured($package_id)
+    {
+        $package = Package::find($package_id);
+        $package->featured = 0;
+        $package->save();
+
+        Session::flash('message', 'Package Was Successfully Set as Unfeatured!'); 
+        Session::flash('alert-class', 'alert-success');
+
+        return redirect('admin/package/');
     }
 }

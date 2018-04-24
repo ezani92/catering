@@ -22,6 +22,7 @@
                                             <th>Price From</th>
                                             <th>Pdf File</th>
                                             <th>Display On Frontend?</th>
+                                            <th>Featured</th>
                                             <th>Is Trashed?</th>
                                             <th>Action</th>
                                             <th>Sort</th>
@@ -39,6 +40,13 @@
                                                         <span class="label label-success">Active</span>
                                                     @else
                                                         <span class="label label-danger">Not Active</span>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if($package->featured == 1)
+                                                        <a href="{{ url('admin/package/'.$package->id.'/unfeatured') }}" data-toggle="tooltip" data-placement="right" title="click to mark as not featured" class="btn btn-primary"><span class="mdi mdi-star"></span></a>
+                                                    @else
+                                                        <a href="{{ url('admin/package/'.$package->id.'/featured') }}" data-toggle="tooltip" data-placement="top" title="click to mark as featured" class="btn btn-default"><span class="mdi mdi-star"></span></a>
                                                     @endif
                                                 </td>
                                                 <td>

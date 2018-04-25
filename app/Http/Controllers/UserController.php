@@ -71,7 +71,9 @@ class UserController extends Controller
             abort(404);
         }
 
-        return view('admin.user.show',compact('user'));
+        $orders = \App\Order::where('user_id',$user->id)->get();
+
+        return view('admin.user.show',compact('user','orders'));
     }
 
     /**
@@ -130,6 +132,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+
+        $orders = \App\Order::where('user_id',$user->id)->delete();
+
+        $user->notifications()->delete();
+        $user->delete();
+
+        return redirect('admin/user');
     }
 }

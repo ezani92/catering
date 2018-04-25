@@ -55,6 +55,7 @@ Route::middleware(['isadmin'])->group(function () {
     Route::get('admin/user/{user_id}', 'UserController@show');
     Route::get('admin/user/{user_id}/edit', 'UserController@edit');
     Route::put('admin/user/{user_id}/edit', 'UserController@update');
+    Route::get('admin/user/{user_id}/delete', 'UserController@destroy');
 
     Route::get('admin/order', 'OrderController@index');
     Route::get('admin/order-data', 'OrderController@data');

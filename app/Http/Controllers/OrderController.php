@@ -43,7 +43,7 @@ class OrderController extends Controller
                 $set = $order->set->name;
 
                 return $set;
-            // })
+            })
             // ->editColumn('status', function ($order) {
             //     if($order->status == 1)
             //     {

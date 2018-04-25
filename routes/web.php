@@ -58,6 +58,7 @@ Route::middleware(['isadmin'])->group(function () {
 
     Route::get('admin/order', 'OrderController@index');
     Route::get('admin/order-data', 'OrderController@data');
+    Route::get('admin/order/{order_id}', 'OrderController@show');
 
     Route::get('admin/package', 'PackageController@index');
     Route::post('admin/package/reposition', 'PackageController@reposition');

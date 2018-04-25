@@ -126,9 +126,9 @@
                                     <li class="{{ Request::is('admin/shipping') ? 'active' : '' }}">
                                         <a href="{{ url('admin/shipping') }}"><i class="icon mdi mdi-truck"></i><span>Manage Shipping</span></a>
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                     	<a href="{{ url('admin/settings') }}"><i class="icon mdi mdi-wrench"></i><span>Settings</span></a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
                         </div>

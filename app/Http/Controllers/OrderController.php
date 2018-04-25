@@ -29,7 +29,7 @@ class OrderController extends Controller
 
         return Datatables::of($orders)
             ->addColumn('actions', function($order) {
-                return view('frontLayouts.action.orders', compact('order'))->render();
+                return '<a href="'. url('admin/order/'.$order->id.'') .'" class="btn btn-xs btn-info">View</a>';
             })
             ->editColumn('created_at', function ($order) {
                 return $order->created_at ? with(new Carbon($order->created_at))->format('d M Y, h:i A') : '';
@@ -108,9 +108,11 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(Order $order, $order_id)
     {
-        //
+        $order = Order::findorfail($order_id);
+
+        return view('admin.order.show',compact('order'));
     }
 
     /**

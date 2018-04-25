@@ -16,8 +16,8 @@
                                 <table id="packages-table" class="table table-striped table-hover table-fw-widget">
                                     <thead>
                                         <tr>
-                                            <th>Order ID</th>
-                                            <th>Order Status</th>
+                                            <th>Order ID</th>{{-- 
+                                            <th>Order Status</th> --}}
                                             <th width="30%">Order Date</th>
                                             <th>Package</th>
                                             <th>Set</th>
@@ -43,7 +43,7 @@
             ajax: 'order-data',
             columns: [
                 { data: 'hash_id', name: 'hash_id' },
-                { data: 'status', name: 'status' },
+                // { data: 'status', name: 'status' },
                 { data: 'created_at', name: 'created_at' },
                 { data: 'package_id', name: 'package_id' },
                 { data: 'set_id', name: 'set_id' },

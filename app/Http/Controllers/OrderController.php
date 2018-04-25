@@ -43,25 +43,25 @@ class OrderController extends Controller
                 $set = $order->set->name;
 
                 return $set;
-            })
-            ->editColumn('status', function ($order) {
-                if($order->status == 1)
-                {
-                    return '<span class="label label-default">Pending Payment</span>';
-                }
-                else if($order->status == 2)
-                {
-                    return '<span class="label label-default">Order Process</span>';
-                }
-                else if($order->status == 3)
-                {
-                    return '<span class="label label-default">Order Delivered</span>';
-                }
-                else if($order->status == 4)
-                {
-                    return '<span class="label label-default">Completed</span>';
-                }
-            })
+            // })
+            // ->editColumn('status', function ($order) {
+            //     if($order->status == 1)
+            //     {
+            //         return '<span class="label label-default">Pending Payment</span>';
+            //     }
+            //     else if($order->status == 2)
+            //     {
+            //         return '<span class="label label-default">Order Process</span>';
+            //     }
+            //     else if($order->status == 3)
+            //     {
+            //         return '<span class="label label-default">Order Delivered</span>';
+            //     }
+            //     else if($order->status == 4)
+            //     {
+            //         return '<span class="label label-default">Completed</span>';
+            //     }
+            // })
             ->editColumn('billplz_status', function ($order) {
                 if($order->billplz_status == 0)
                 {

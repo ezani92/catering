@@ -274,6 +274,71 @@ class SetController extends Controller
         return redirect('admin/set/'.$set_id);
     }
 
+    public function coursesAdd($set_id)
+    {
+        $set = Set::find($set_id);
+        $foods = Food::all()->pluck('name','id');
+
+        return view('admin.sets.addCourses',compact('set','foods'));
+    }
+
+    public function coursesStore(Request $request, $set_id)
+    {
+        $input = $request->all();
+
+        $CourseCategory =  new CourseCategory;
+        $CourseCategory->set_id = $set_id;
+        $CourseCategory->name = $input['food_category'];
+        $CourseCategory->maximum_selection = $input['maximum_select'];
+
+        if(isset($input['multiple']))
+        {
+            $CourseCategory->allow_multiple = $input['multiple'];
+        }
+        else
+        {
+            $CourseCategory->allow_multiple = 0;
+        }
+
+        if(isset($input['compulsory']))
+        {
+            $CourseCategory->compulsory = $input['compulsory'];
+        }
+        else
+        {
+            $CourseCategory->compulsory = 0;
+        }
+
+        $CourseCategory->save();
+
+        $j = 0;
+
+        foreach ($input['food'] as $food)
+        {
+            $course = new Course;
+            $course->course_category_id = $CourseCategory->id;
+            $course->food_id = $food;
+
+            if($input['add_price'][$j] != null)
+            {
+                $course->additional_price = $input['add_price'][$j];
+            }
+            else
+            {
+                $course->additional_price = 0;
+            }
+
+            $course->save();
+
+            $j++;
+        }
+
+        Session::flash('message', 'Courses Was Successfully Added!'); 
+        Session::flash('alert-class', 'alert-success');
+
+        return redirect('admin/set/'.$set_id);
+    }
+
     public function coursesEdit($set_id, $course_category_id)
     {
         $set = Set::find($set_id);
@@ -312,8 +377,32 @@ class SetController extends Controller
             $CourseCategory->compulsory = 0;
         }
 
-
         $CourseCategory->save();
+
+        $j = 0;
+
+        $courses = Course::where('course_category_id',$course_category_id);
+        $courses->delete();
+
+        foreach ($input['food'] as $food)
+        {
+            $course = new Course;
+            $course->course_category_id = $course_category_id;
+            $course->food_id = $food;
+
+            if($input['add_price'][$j] != null)
+            {
+                $course->additional_price = $input['add_price'][$j];
+            }
+            else
+            {
+                $course->additional_price = 0;
+            }
+
+            $course->save();
+
+            $j++;
+        }
 
         Session::flash('message', 'Courses Was Successfully Updated!'); 
         Session::flash('alert-class', 'alert-success');

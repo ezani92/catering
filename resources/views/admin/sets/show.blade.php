@@ -22,7 +22,7 @@
                                             <td><strong>Price Per Pax/Set</strong></td>
                                             <td>RM {{ $set->price }}</td>
                                         </tr>
-                                        <tr>
+                                        <tr id="add-course-step-1" data-intro='You need to set this more than current one to start adding new course categories.'>
                                             <td><strong>Total Course</strong></td>
                                             <td>{{ $set->courses }}</td>
                                         </tr>
@@ -60,7 +60,7 @@
                         @else
                             <a href="{{ url('admin/set/'.$set->id.'/hide') }}" onclick="return hideLink(this.href)" class="btn btn-block btn-warning">Hide Set On Order Page</a>
                         @endif
-                        <a href="{{ url('admin/set/'.$set->id.'/edit') }}" class="btn btn-block btn-info">Edit Set</a>
+                        <a id="add-course-step-2" data-intro="You can edit total course by clicking this button." href="{{ url('admin/set/'.$set->id.'/edit') }}" class="btn btn-block btn-info">Edit Set</a>
                         <a href="{{ url('admin/set/'.$set->id.'/delete') }}" onclick="return deleteset(this.href)" class="btn btn-block btn-danger">Delete SET</a>
                     </div>
                 </div>
@@ -80,6 +80,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @php
+                                            $course_count = 0;
+                                        @endphp
                                     	@foreach($set->course_categories as $courseCategory)
                                         <tr>
                                             <td>{{ $courseCategory->name }}</td>
@@ -106,11 +109,15 @@
                                             </td>
                                             <td><a href="{{ url('admin/set/'.$set->id.'/courses/'.$courseCategory->id.'/edit') }}" class="btn btn-primary">Edit</a></td>
                                         </tr>
+                                        @php
+                                            $course_count++;
+                                        @endphp
                                         @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         </div>
+                        <a href="{{ url('admin/set/'.$set->id.'/courses/add') }}" class="btn btn-block btn-success">Add New Course</a>
                     </div>
                 </div>
             </div>
@@ -167,6 +174,11 @@
 
             return false;
         }
+        $("#run-course-tutorial").on("click",function(){
+            introJs().start();
+        });
+
+        
     </script>
     </body>
 </html>

@@ -31,19 +31,19 @@
 		                            		<div id="food_list">
 		                            			<br />
 		                            			@foreach($courses as $course)
-		                            			<span id="remove{{ $course->id }}">
-			                            		<div class="col-md-6">
-			                            			{{ Form::select('food[]', $foods, $course->food_id , ['class' => 'form-control food']) }}
-			                            		</div>
-			                            		<div class="col-md-4">
-			                            			<input type="text" name="add_price[]" class="form-control" value="{{ $course->additional_price }}" placeholder="Additonal Price Per Pax (Optional)">
-			                            		</div>
-			                            		<div class="col-md-2">
-			                            			{{-- <button type="button" class="btn btn-xl btn-success" onclick="addFood();">&nbsp;<i class="mdi mdi-plus"></i>&nbsp;</button> --}}
-			                            			<button type="button" class="btn btn-xl btn-danger" onclick="removeFood({{ $course->id }});">&nbsp;<i class="mdi mdi-minus"></i>&nbsp;</button>
-			                            		</div>
-			                            		<br />&nbsp;
-			                            		</span>
+			                            			<span id="remove{{ $course->id }}">
+
+					                            		<div class="col-md-6">
+					                            			{{ Form::select('food[]', $foods, $course->food_id , ['class' => 'form-control food']) }}
+					                            		</div>
+					                            		<div class="col-md-4">
+					                            			<input type="text" name="add_price[]" class="form-control" value="{{ $course->additional_price }}" placeholder="Additonal Price Per Pax (Optional)">
+					                            		</div>
+					                            		<div class="col-md-2">
+					                            			<button type="button" class="btn btn-xl btn-success" onclick="addFood();">&nbsp;<i class="mdi mdi-plus"></i>&nbsp;</button>
+					                            			<button type="button" class="btn btn-xl btn-danger" onclick="removeFood({{ $course->id }});">&nbsp;<i class="mdi mdi-minus"></i>&nbsp;</button>
+					                            		</div>
+				                            		</span>
 			                            		@endforeach
 		                            		</div>
 
@@ -93,9 +93,7 @@
     @include('admin.layouts.footer')
     <script type="text/javascript">
         
-        $(document).ready(function() {
-            $('.food').select2();
-		});
+        $('.food').select2();
 
         function addFood()
         {

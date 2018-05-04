@@ -107,7 +107,9 @@
                                                     Single Selection
                                                 @endif
                                             </td>
-                                            <td><a href="{{ url('admin/set/'.$set->id.'/courses/'.$courseCategory->id.'/edit') }}" class="btn btn-primary">Edit</a></td>
+                                            <td><a href="{{ url('admin/set/'.$set->id.'/courses/'.$courseCategory->id.'/edit') }}" class="btn btn-primary">Edit</a>
+                                                <a onclick="return deletecourse(this.href)" href="{{ url('admin/set/'.$set->id.'/courses/'.$courseCategory->id.'/delete') }}" class="btn btn-danger">Delete</a></td>
+                                            </td>
                                         </tr>
                                         @php
                                             $course_count++;
@@ -174,6 +176,24 @@
 
             return false;
         }
+
+        function deletecourse(url) {
+
+            swal({
+                title: 'Are you sure you want to delete this course category?',
+                text: "This action cant be undo.",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then(function() {
+                window.location.replace(url);
+            })
+
+            return false;
+        }
+
         $("#run-course-tutorial").on("click",function(){
             introJs().start();
         });

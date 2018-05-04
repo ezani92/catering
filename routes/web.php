@@ -104,6 +104,7 @@ Route::middleware(['isadmin'])->group(function () {
 
     Route::get('admin/set/{set_id}/courses/{course_category_id}/edit', 'SetController@coursesEdit');
     Route::post('admin/set/{set_id}/courses/{course_category_id}/update', 'SetController@coursesUpdate');
+    Route::get('admin/set/{set_id}/courses/{course_category_id}/delete', 'SetController@coursesDelete');
 
     
 

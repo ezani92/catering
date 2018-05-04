@@ -410,6 +410,22 @@ class SetController extends Controller
         return redirect('admin/set/'.$set_id);
     }
 
+    public function coursesDelete($set_id,$course_category_id)
+    {
+        $courses = Course::where('course_category_id',$course_category_id);
+        $courses->delete();
+
+        $CourseCategory = CourseCategory::find($course_category_id);
+        $CourseCategory->delete();
+
+        Session::flash('message', 'Courses Category Was Successfully deleted!'); 
+        Session::flash('alert-class', 'alert-success');
+
+        return redirect('admin/set/'.$set_id);
+
+
+    }
+
     public function reposition(Request $request)
     {
         $input = $request->all();

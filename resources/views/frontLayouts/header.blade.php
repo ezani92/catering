@@ -24,6 +24,8 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFQno041-N6A1euP54uudO5hfqe1tmJlA&libraries=places"></script>
         <script type="text/javascript" src="https://cdn.rawgit.com/Logicify/jquery-locationpicker-plugin/fac86581/src/locationpicker.jquery.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/ericjgagnon/wickedpicker/2a8950a7/dist/wickedpicker.min.css">
         <style type="text/css">
             
         </style>

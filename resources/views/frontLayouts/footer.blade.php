@@ -19,6 +19,8 @@
         <script type="text/javascript" src="https://bootstrap-wysiwyg.github.io/bootstrap3-wysiwyg/components/wysihtml5x/dist/wysihtml5x-toolbar.min.js"></script>
         <script type="text/javascript" src="https://bootstrap-wysiwyg.github.io/bootstrap3-wysiwyg/components/handlebars/handlebars.runtime.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://cdn.rawgit.com/ericjgagnon/wickedpicker/2a8950a7/src/wickedpicker.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
                 //initialize the javascript

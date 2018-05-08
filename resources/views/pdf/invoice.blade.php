@@ -76,11 +76,10 @@
 		    			<div class="col-xs-5">
 		    				<address>
 		    				<strong>Invoice From:</strong><br>
-		    					Teaffani Catering Sdn Bhd<br>
-		    					No. 8 Jalan Pelukis U1/46A<br />
-		    					Temasya 18, Glenmarie,<br />
-		    					Kawasan Perindustrian Temasya,<br />
-		    					40150 Shah Alam, Selangor 
+		    					Naxpansion Sdn Bhd<br>
+		    					C-35-06, Trefoil@Setia<br />
+		    					Bandar Setia Alam, Seksyen U13, S<br />
+		    					40170 Shah Alam, Selangor 
 		    				</address>
 		    			</div>
 		    		</div>
@@ -166,7 +165,7 @@
 		    </div>
 		    <div class="row">
 		    	<div class="well">
-		    		<p>This invoice is computer ganerated, if you find mistake on this invoice please contact us at support@teaffani.com for more details</p>
+		    		<p>This invoice is computer ganerated, if you find mistake on this invoice please contact us at support@catering.com for more details</p>
 		    	</div>
 		    </div>
 		</div>

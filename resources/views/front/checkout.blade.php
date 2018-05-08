@@ -235,11 +235,11 @@
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label><strong>Date Delivery</strong></label>
-                                                <input type="date" name="checkout_date" class="form-control" required>
+                                                <input type="text" name="checkout_date" class="form-control datepicker" required>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label>Time Delivery</label>
-                                                <input type="time" name="checkout_time" class="form-control" required>
+                                                <input type="text" name="checkout_time" class="form-control timepicker" required>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -303,13 +303,18 @@
                 </div>
             </div>
         </div>
-    @include('frontLayouts.footer')   
+    @include('frontLayouts.footer')
+    
     <script type="text/javascript">
 
     $(document).ready(function(){
 
         
+        $(".datepicker").datepicker({
+            dateFormat: 'dd/mm/yy'
+        });
 
+        $('.timepicker').wickedpicker();
         
           
          $('.select2').select2();

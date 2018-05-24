@@ -257,6 +257,11 @@ class FrontController extends Controller
 	{
 		$input = $request->all();
 
+        $phone4 = str_replace(" ","",$input['checkout_phone']);
+        $phone3 = str_replace("-","",$phone4);
+        $phone2 = str_replace("(","",$phone3);
+        $phone = str_replace(")","",$phone2);
+
 		$input['courses_categories'];
 
 		$grand_total = 100 * round($input['grand_price'],2);
@@ -268,7 +273,7 @@ class FrontController extends Controller
 	        $response = $curlService->to('https://billplz-staging.herokuapp.com/api/v3/bills/')
 	        ->withData( array( 'collection_id' => 'tqvc_clu',
 	                           'email' => $input['checkout_email'],
-	                           'mobile' => $input['checkout_phone'],
+	                           'mobile' => $phone,
 	                           'name' => $input['checkout_name'],
 	                           'amount' => $grand_total,
 	                           'callback_url' => url('order/callback'),
@@ -284,7 +289,7 @@ class FrontController extends Controller
 	    // End Create Bill
 
 	    $user = User::find($input['checkout_user_id']);
-	    $user->phone = $input['checkout_phone'];
+	    $user->phone = $phone;
 	    $user->address1 = $input['checkout_billing_address_1'];
 	    $user->address2 = $input['checkout_billing_address_2'];
 	    $user->postcode = $input['checkout_billing_poscode'];
@@ -299,7 +304,7 @@ class FrontController extends Controller
 	    $order->package_id = $input['package_id'];
 	    $order->set_id = $input['set_id'];
 	    $order->pax = $input['pax'];
-	    $order->set_price = floatval($input['set_price']);
+	    $order->set_price = floatval(str_replace(",","",$input['set_price']));
 	    $order->addon_price = floatval($input['addon_price']);
 	    $order->transport_price = floatval($input['transport_price']);
 	    $order->gst_price = floatval($input['gst_price']);
@@ -311,7 +316,9 @@ class FrontController extends Controller
 	    $order->checkout_delivery_postcode = $input['checkout_delivery_postcode'];
 	    $order->checkout_delivery_city = $input['checkout_delivery_city'];
 	    $order->checkout_delivery_state = 'null';
-	    $order->checkout_note = $input['checkout_note'];
+	    $order->checkout_lift = $input['checkout_lift'];
+        $order->checkout_request = $input['checkout_request'];
+        $order->checkout_note = $input['checkout_note'];
         $order->checkout_lat = $input['delivery_lat'];
         $order->checkout_long = $input['delivery_long'];
 	    $order->courses_categories = implode(',',$input['courses_categories']);

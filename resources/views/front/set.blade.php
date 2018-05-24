@@ -339,7 +339,7 @@
         var grand_total = total + final_additional_price;
 
         animate(grand_total,'total');
-        animate((total + final_additional_price) * 1.06 , 'total_with_gst');
+        animate((total + final_additional_price) * 1.00 , 'total_with_gst');
 
         $('#pax_form').val(current_pax);
         $('#total_form').val(grand_total);

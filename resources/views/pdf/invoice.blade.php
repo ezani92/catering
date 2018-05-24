@@ -148,7 +148,7 @@
 		    							</tr>
 		    							<tr>
 		    								<td class="no-line"></td>
-		    								<td class="no-line text-right"><strong>GST 6%</strong></td>
+		    								<td class="no-line text-right"><strong>GST 0%</strong></td>
 		    								<td class="no-line text-right">RM {{ $order->gst_price }}</td>
 		    							</tr>
 		    							<tr>

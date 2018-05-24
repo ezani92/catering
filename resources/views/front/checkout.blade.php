@@ -28,7 +28,7 @@
 
                                     $setprice = str_replace(',','',$input['_set_price']);
                                     $grand = floatval($setprice) + floatval($add_on_price);
-                                    $grand_with_gst = $grand * 1.06;
+                                    $grand_with_gst = $grand * 1.00;
                                     $gst_only = $grand_with_gst - $grand;
 
 
@@ -183,7 +183,7 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label><strong>Phone Number</strong></label>
-                                                <input type="text" pattern=".{10,}" name="checkout_phone" class="form-control" required title="Please use valid phone number">
+                                                <input type="text" name="checkout_phone" class="form-control phone" required title="Please use valid phone number">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -267,6 +267,19 @@
                                         </div>
 
                                         <div class="form-group">
+                                            <label><strong>Do we need to use an elavator / lift to reach your venue?</strong></label>
+                                            <select name="checkout_lift" class="form-control" required>
+                                                <option value="0">No</option>
+                                                <option value="1">Yes</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Let us know what can be provided at the event venue! (Eg, power supply, water supply, tables, etc)</label>
+                                            <textarea class="form-control" name="checkout_request" required></textarea>
+                                        </div>
+
+                                        <div class="form-group">
                                             <label>Other Notes / Request</label>
                                             <textarea class="form-control" name="checkout_note"></textarea>
                                         </div>
@@ -309,6 +322,7 @@
 
     $(document).ready(function(){
 
+        $('.phone').mask('(000) 0000-0000');
         
         $(".datepicker").datepicker({
             dateFormat: 'dd/mm/yy'
@@ -328,7 +342,7 @@
            var total = parseFloat(set_price) + parseFloat(addon_price) + parseFloat(transport_rate);
 
 
-           var grand_total = total * 1.06;
+           var grand_total = total * 1.00;
            var gst = grand_total - total;
 
            animate(transport_rate,'transportation_price');

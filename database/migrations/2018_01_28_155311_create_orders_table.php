@@ -42,6 +42,8 @@ class CreateOrdersTable extends Migration
             $table->string('checkout_delivery_postcode')->nullable();
             $table->string('checkout_delivery_city');
             $table->string('checkout_delivery_state');
+            $table->integer('checkout_lift')->nullable();
+            $table->text('checkout_request')->nullable();
             $table->text('checkout_note')->nullable();
             $table->string('checkout_lat')->nullable();
             $table->string('checkout_long')->nullable();

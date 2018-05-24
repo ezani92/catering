@@ -31,7 +31,7 @@
                                         <span style="font-size:24px; color: #01493c;">RM <span id="total">{{ number_format($input['total_form'],2) }}</span></span>
                                         <br />
                                         PRICE W/ GST<br />
-                                        <span style="font-size:24px; color: #01493c;">RM <span id="total_with_gst" >{{ number_format($input['total_form'] * 1.06,2) }}</span></span>
+                                        <span style="font-size:24px; color: #01493c;">RM <span id="total_with_gst" >{{ number_format($input['total_form'] * 1.00,2) }}</span></span>
                                         <br />
                                         <br />
                                     </div>

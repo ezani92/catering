@@ -24,7 +24,7 @@ Route::post('order/add-on', 'FrontController@addon');
 Route::post('order/check-out', 'FrontController@checkoutPost');
 Route::post('order/payment', 'FrontController@payment');
 Route::get('order/check-out', 'FrontController@checkoutGet');
-Route::get('order/callback', 'FrontController@callback');
+Route::get('order/callback', 'CallbackController@billplz');
 Route::get('order/redirect', 'FrontController@redirect');
 Route::get('order/history', 'FrontController@history');
 Route::get('order/history-data/{user_id}', 'FrontController@historydata');

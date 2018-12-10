@@ -38,7 +38,7 @@
                     </div>
                     <div class="be-right-navbar">
                         <ul class="nav navbar-nav navbar-right be-user-nav">
-                            <a href="http://teaffani.naxpansion.com"><div class="page-title"><span class="btn btn-default">Home</span></div></a>
+                            {{-- <a href="http://teaffani.naxpansion.com"><div class="page-title"><span class="btn btn-default">Home</span></div></a> --}}
                             @if(Auth::guest())
                                 <li class="dropdown">
                                 <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle"><img src="{{ secure_asset('assets/img/avatar.png') }}" alt="Avatar"><span class="user-name">Guest</span></a>

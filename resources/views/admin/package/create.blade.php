@@ -35,6 +35,10 @@
                                                         <option value="Item">Item</option>
                                                     </select>
                                                 </div>
+                                                <div class="form-group xs-pt-10">
+                                                    <label>Featured Image (1000x686)</label>
+                                                    <input type="file" name="featured_image" class="form-control input-sm" required/>
+                                                </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group xs-pt-10">

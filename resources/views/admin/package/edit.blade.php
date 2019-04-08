@@ -33,6 +33,10 @@
                                                     <label>Price Per?</sup></label>
                                                     {{ Form::select('is_pax', ['Pax' => 'Pax', 'Item' => 'Item'], $package->is_pax,['class' => 'form-control']) }}
                                                 </div>
+                                                <div class="form-group xs-pt-10">
+                                                    <label>Featured Image (<a target="_blank" href="{{ asset('storage/featured_image/'.$package->featured_image) }}">Current Image</a>) <sub>*Leave empty if the image file is same</sub></label>
+                                                    <input type="file" name="featured_image" class="form-control input-sm" />
+                                                </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group xs-pt-10">

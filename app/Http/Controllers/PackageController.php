@@ -106,6 +106,19 @@ class PackageController extends Controller
 
 
             $package->pdf_file = $filename;
+        }
+
+        if ($request->hasFile('featured_image'))
+        {
+            $file = $request->file('featured_image');
+        
+            $filename = time().'.'.$file->getClientOriginalExtension();
+            
+            $destinationPath = 'storage/featured_image';
+            $file->move($destinationPath,$filename);
+
+
+            $package->featured_image = $filename;
         }  
 
         $package->name = $input['name'];
@@ -184,6 +197,19 @@ class PackageController extends Controller
             $file->move($destinationPath,$filename);
 
             $package->pdf_file = $filename;
+        }
+
+        if ($request->hasFile('featured_image'))
+        {
+            $file = $request->file('featured_image');
+        
+            $filename = time().'.'.$file->getClientOriginalExtension();
+            
+            $destinationPath = 'storage/featured_image';
+            $file->move($destinationPath,$filename);
+
+
+            $package->featured_image = $filename;
         }
 
         

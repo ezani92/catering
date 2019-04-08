@@ -31,6 +31,10 @@
                                             <td><a target="_blank" href="{{ asset('storage/pdf/'.$package->pdf_file) }}">View PDF</a></td>
                                         </tr>
                                         <tr>
+                                            <td><strong>Featured_image</strong></td>
+                                            <td><a target="_blank" href="{{ asset('storage/featured_image/'.$package->featured_image) }}">View IMAGE</a></td>
+                                        </tr>
+                                        <tr>
                                             <td><strong>Active On Order</strong></td>
                                             <td>
                                                 @if($package->is_display == 1)

@@ -51,7 +51,7 @@
                             ">
                                 <span style="font-size: 20px;">RM {{ $set->price }}</span><sup> / pax</sup>
                                 <span style="font-size: 20px; color: #DDD;">&nbsp; | &nbsp;</span>
-                                <span style="font-size: 20px;">RM {{ number_format($set->price * 1.06,2) }}</span><sup> / GST</sup>
+                                <span style="font-size: 20px;">RM {{ number_format($set->price * 1.06,2) }}</span><sup> / SST</sup>
                                 <br />
                                 <span style="font-size: 15px;">{{ $set->courses }} Course | min {{ $set->min_pax }} Pax</sup>
                                 <br />

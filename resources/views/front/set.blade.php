@@ -37,7 +37,7 @@
                                         PRICE<br />
                                         <span style="font-size:24px; color: #01493c;">RM <span id="total">0</span></span>
                                         <br />
-                                        PRICE W/ GST<br />
+                                        PRICE W/ SST<br />
                                         <span style="font-size:24px; color: #01493c;">RM <span id="total_with_gst" >0</span></span>
                                         <br />
                                         <br />
